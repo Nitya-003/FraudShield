@@ -7,7 +7,7 @@
 
 ---
 
-## Recommended Tech Stack
+## Tech Stack
 
 * **Language:** Python
 * **Data Manipulation:** Pandas, NumPy
