@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FraudShield — Real-Time Payment Risk Gate</title>
+    <meta name="description" content="Decide in milliseconds whether a payment should go through. Calibrated multi-channel fraud detection across cards, wallets, accounts, and UPI." />
+    
+  
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="FraudShield — Payment Risk Decision Gate" />
+    <meta property="og:description" content="Decide in milliseconds whether a payment should go through. Calibrated multi-channel fraud detection." />
+    <meta property="og:image" content="/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="FraudShield — Payment Risk Decision Gate" />
+    <meta name="twitter:description" content="Decide in milliseconds whether a payment should go through. Calibrated multi-channel fraud detection." />
+    <meta name="twitter:image" content="/og-image.png" />
+
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+  
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('fraudshield-theme');
+          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (saved === 'dark' || (!saved && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="bg-[#F6F8FA] text-[#0F172A] dark:bg-[#0B0F14] dark:text-[#E8EDF2] antialiased min-h-screen selection:bg-emerald-500/20 selection:text-emerald-400">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
