@@ -1,0 +1,9 @@
+# GPU Acceleration Extras (CUDA 12.8 for RTX 50-series Blackwell & NVIDIA GPUs)
+# Install base CPU requirements and override PyTorch with CUDA 12.8 builds:
+-r requirements.txt
+
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch==2.11.0+cu128
+torchvision==0.26.0+cu128
+torch_geometric==2.8.1
+
