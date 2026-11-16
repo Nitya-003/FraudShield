@@ -74,7 +74,7 @@ Across candidate models evaluated on out-of-time test streams:
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/ayush/FraudShield-main.git
+git clone https://github.com/Nitya-003/FraudShield-main.git
 cd FraudShield-main
 
 # Set up Python virtual environment
