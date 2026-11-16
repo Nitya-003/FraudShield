@@ -1,0 +1,40 @@
+# Virtual Environment
+.venv/
+venv/
+ENV/
+
+# Node & Frontend
+node_modules/
+*/node_modules/
+.npm/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+
+# Testing & Notebooks
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Large Datasets & Archives (Keep raw data out of git)
+*.zip
+*.tar.gz
+*.db
+data/cases.db
+data/raw/*.csv
+data/raw/*.parquet
+data/processed/*.parquet
+!data/processed/*_sample.parquet
+!data/processed/entity_network_subgraph.parquet
+!data/processed/.gitkeep
+!data/raw/.gitkeep
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+catboost_info/
+
