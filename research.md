@@ -15,7 +15,6 @@
 * **Class Imbalance Handling:** Imbalanced-learn (`SMOTE`) or model-level cost-sensitive weighting (`class_weight='balanced'`)
 * **Core ML Models:** Scikit-Learn (Logistic Regression baseline, Random Forest) and LightGBM / XGBoost (champion model)
 * **Model Explainability:** SHAP (SHapley Additive exPlanations)
-* **Interactive UI / Demo (Optional):** Streamlit or FastAPI
 
 ---
 
