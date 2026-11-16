@@ -1,0 +1,7 @@
+# Deep Learning & Graph Neural Network Research
+# For CPU: pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+# For GPU (CUDA 12.8 / RTX 5070): pip install torch torchvision torch_geometric
+torch>=2.2.0
+torchvision>=0.17.0
+torch_geometric>=2.5.0
+
