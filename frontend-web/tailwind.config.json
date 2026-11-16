@@ -1,0 +1,100 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  darkMode: ['class'],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        background: 'var(--background)',
+        surface: {
+          DEFAULT: 'var(--surface)',
+          subtle: 'var(--surface-subtle)',
+        },
+        border: {
+          DEFAULT: 'var(--border)',
+          subtle: 'var(--border)',
+          strong: 'var(--border-strong)',
+        },
+        text: {
+          DEFAULT: 'var(--text)',
+          primary: 'var(--text)',
+          muted: 'var(--muted)',
+        },
+        muted: 'var(--muted)',
+        accent: {
+          DEFAULT: 'var(--accent)',
+          subtle: 'var(--accent-subtle)',
+        },
+        warn: {
+          DEFAULT: 'var(--warn)',
+          subtle: 'var(--warn-subtle)',
+        },
+        danger: {
+          DEFAULT: 'var(--danger)',
+          subtle: 'var(--danger-subtle)',
+        },
+        ring: 'var(--ring)',
+        input: 'hsl(var(--input))',
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
+        },
+        ctrl: {
+          bg: 'var(--background)',
+          surface: 'var(--surface)',
+          border: 'var(--border)',
+          text: 'var(--text)',
+          muted: 'var(--muted)',
+          accent: 'var(--accent)',
+          amber: 'var(--warn)',
+          red: 'var(--danger)',
+        },
+      },
+      fontSize: {
+        xs: ['12px', { lineHeight: '16px' }],
+        sm: ['14px', { lineHeight: '20px' }],
+        base: ['16px', { lineHeight: '24px' }],
+        lg: ['20px', { lineHeight: '28px' }],
+        xl: ['28px', { lineHeight: '36px' }],
+        '2xl': ['40px', { lineHeight: '48px' }],
+      },
+      fontWeight: {
+        normal: '400',
+        semibold: '600',
+      },
+      letterSpacing: {
+        normal: '0',
+      },
+      borderRadius: {
+        sm: '6px',
+        DEFAULT: '6px',
+        md: '10px',
+        lg: '14px',
+        full: '9999px',
+      },
+      boxShadow: {
+        card: '0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04)',
+        overlay: '0 10px 25px -5px rgba(0, 0, 0, 0.10), 0 8px 10px -6px rgba(0, 0, 0, 0.10)',
+      },
+      maxWidth: {
+        shell: '1200px',
+        '7xl': '1200px',
+      },
+      fontFamily: {
+        sans: ['"Geist Sans"', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        heading: ['"Geist Sans"', 'Inter', 'sans-serif'],
+        mono: ['"Geist Mono"', '"JetBrains Mono"', 'Menlo', 'monospace'],
+        serif: ['"Geist Sans"', 'Inter', 'sans-serif'],
+      },
+      transitionDuration: {
+        120: '120ms',
+        200: '200ms',
+        320: '320ms',
+      },
+      transitionTimingFunction: {
+        control: 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+  plugins: [],
+};
