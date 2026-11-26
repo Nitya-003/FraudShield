@@ -1,0 +1,1387 @@
+{
+  "model_name": "Tuned LightGBM (Platt-Calibrated)",
+  "champion_strategy": "1:10 Undersampled Training with Full Natural Prevalence Validation",
+  "training_strategy": "1:10 Undersampled Training with Full Natural Prevalence Validation",
+  "training_date": "2026-11-09T14:31:18.166791",
+  "random_state": 42,
+  "library_versions": {
+    "lightgbm": "4.5.0",
+    "pandas": "2.2.3",
+    "numpy": "1.26.4"
+  },
+  "features": [
+    "amount",
+    "log_amount",
+    "hour_of_day",
+    "sin_hour",
+    "cos_hour",
+    "is_night",
+    "type_CASH_IN",
+    "type_CASH_OUT",
+    "type_DEBIT",
+    "type_PAYMENT",
+    "type_TRANSFER",
+    "oldbalanceOrg",
+    "oldbalanceDest",
+    "orig_emptied",
+    "amount_to_balance_ratio",
+    "is_dest_merchant",
+    "dest_balance_zero",
+    "dest_past_tx_count",
+    "dest_total_past_amount",
+    "dest_time_since_last_tx",
+    "dest_tx_last_1h",
+    "dest_tx_last_6h",
+    "dest_tx_last_24h"
+  ],
+  "feature_count": 23,
+  "target_column": "isFraud",
+  "validation_metrics": {
+    "pr_auc": 0.99976,
+    "roc_auc": 0.99999,
+    "recall": 0.99775,
+    "precision": 0.99626
+  },
+  "test_metrics": {
+    "pr_auc": 0.99976,
+    "roc_auc": 0.99999,
+    "recall": 0.99775,
+    "precision": 0.99626,
+    "f1": 0.99701,
+    "fpr": 2e-05,
+    "false_alarms_per_100k": 1.6,
+    "tp": 3997,
+    "fp": 15,
+    "fn": 9,
+    "tn": 914596,
+    "fit_time_sec": 0.2
+  },
+  "thresholds": {
+    "low_risk_approve": 0.45,
+    "high_risk_decline": 0.9,
+    "medium_risk_otp": [
+      0.45,
+      0.9
+    ],
+    "optimization_basis": "Validation Expected Cost Minimization"
+  },
+  "calibrated_thresholds": {
+    "low_risk_approve": 0.45,
+    "high_risk_decline": 0.9
+  },
+  "dataset_splits": {
+    "train_rows": 4493017,
+    "train_fraud_count": 3653,
+    "train_fraud_rate": 0.0008130394343043883,
+    "val_rows": 950986,
+    "val_fraud_count": 554,
+    "val_fraud_rate": 0.0005825532657683709,
+    "test_rows": 918617,
+    "test_fraud_count": 4006,
+    "test_fraud_rate": 0.004360903401526425
+  },
+  "expanding_window_cv": {
+    "Logistic Regression": {
+      "mean": 0.20871,
+      "std": 0.10995
+    },
+    "Random Forest": {
+      "mean": 0.99657,
+      "std": 0.0025
+    },
+    "LightGBM": {
+      "mean": 0.98789,
+      "std": 0.00337
+    }
+  },
+  "benchmarks": {
+    "Rule 1 (Amount > 50k)": {
+      "pr_auc": 0.00667,
+      "roc_auc": 0.66616,
+      "recall": 0.88342,
+      "precision": 0.00697,
+      "f1": 0.01384,
+      "fpr": 0.5511,
+      "false_alarms_per_100k": 55110.1,
+      "tp": 3539,
+      "fp": 504043,
+      "fn": 467,
+      "tn": 410568
+    },
+    "Rule 2 (Channel & Empty)": {
+      "pr_auc": 0.0217,
+      "roc_auc": 0.89208,
+      "recall": 0.97154,
+      "precision": 0.0222,
+      "f1": 0.04342,
+      "fpr": 0.18739,
+      "false_alarms_per_100k": 18739.2,
+      "tp": 3892,
+      "fp": 171391,
+      "fn": 114,
+      "tn": 743220
+    },
+    "Rule 3 (Channel & Empty & DestZero)": {
+      "pr_auc": 0.03315,
+      "roc_auc": 0.78905,
+      "recall": 0.63055,
+      "precision": 0.05002,
+      "f1": 0.09269,
+      "fpr": 0.05245,
+      "false_alarms_per_100k": 5245.0,
+      "tp": 2526,
+      "fp": 47971,
+      "fn": 1480,
+      "tn": 866640
+    },
+    "Decision Tree (Depth 3)": {
+      "pr_auc": 0.99826,
+      "roc_auc": 0.99974,
+      "recall": 0.99925,
+      "precision": 0.999,
+      "f1": 0.99913,
+      "fpr": 0.0,
+      "false_alarms_per_100k": 0.4,
+      "tp": 4003,
+      "fp": 4,
+      "fn": 3,
+      "tn": 914607,
+      "fit_time_sec": 0.09
+    },
+    "Logistic Regression": {
+      "pr_auc": 0.71166,
+      "roc_auc": 0.99528,
+      "recall": 0.98452,
+      "precision": 0.06926,
+      "f1": 0.12941,
+      "fpr": 0.05795,
+      "false_alarms_per_100k": 5795.3,
+      "tp": 3944,
+      "fp": 53004,
+      "fn": 62,
+      "tn": 861607,
+      "fit_time_sec": 0.09
+    },
+    "Random Forest": {
+      "pr_auc": 0.99996,
+      "roc_auc": 1.0,
+      "recall": 0.99925,
+      "precision": 0.99232,
+      "f1": 0.99577,
+      "fpr": 3e-05,
+      "false_alarms_per_100k": 3.4,
+      "tp": 4003,
+      "fp": 31,
+      "fn": 3,
+      "tn": 914580,
+      "fit_time_sec": 0.25
+    },
+    "LightGBM (Cost-Weighted)": {
+      "pr_auc": 0.424,
+      "roc_auc": 0.95802,
+      "recall": 0.92312,
+      "precision": 0.45683,
+      "f1": 0.61119,
+      "fpr": 0.00481,
+      "false_alarms_per_100k": 480.8,
+      "tp": 3698,
+      "fp": 4397,
+      "fn": 308,
+      "tn": 910214,
+      "fit_time_sec": 9.31
+    },
+    "Tuned LightGBM (Champion)": {
+      "pr_auc": 0.99976,
+      "roc_auc": 0.99999,
+      "recall": 0.99775,
+      "precision": 0.99626,
+      "f1": 0.99701,
+      "fpr": 2e-05,
+      "false_alarms_per_100k": 1.6,
+      "tp": 3997,
+      "fp": 15,
+      "fn": 9,
+      "tn": 914596,
+      "fit_time_sec": 0.2
+    }
+  },
+  "multi_seed_stability": {
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "pr_auc_mean": 0.99978,
+    "pr_auc_std": 1e-05
+  },
+  "bootstrap_ci_95": {
+    "pr_auc": [
+      0.99811,
+      1.0
+    ],
+    "recall": [
+      0.99768,
+      1.0
+    ],
+    "precision": [
+      0.98253,
+      0.99776
+    ]
+  },
+  "calibration": {
+    "method": "Platt Scaling (Logistic Sigmoid)",
+    "brier_score_before": 2.3e-05,
+    "brier_score_after": 2.2e-05
+  },
+  "economics_natural_prevalence": {
+    "total_test_transactions": 918617,
+    "total_test_fraud_count": 4006,
+    "total_exposed_fraud_inr": 6323046400.0,
+    "fraud_count_caught": 3999,
+    "fraud_count_missed": 7,
+    "fraud_recall_pct": 99.83,
+    "fraud_inr_caught": 6322647552.0,
+    "fraud_inr_missed": 399045.09,
+    "fraud_value_protection_pct": 99.9937,
+    "false_declines": 11,
+    "false_positive_rate": 1e-05,
+    "false_alarms_per_100k": 1.2,
+    "daily_otp_challenges": 0.6,
+    "bands": {
+      "Low (< 0.45)": {
+        "transactions": 914601,
+        "pct_traffic": 99.56,
+        "frauds": 7,
+        "total_inr": 148781039616.0,
+        "fraud_inr": 399045.09,
+        "daily_volume": 60303.4
+      },
+      "Medium (0.45-0.90)": {
+        "transactions": 9,
+        "pct_traffic": 0.0,
+        "frauds": 3,
+        "total_inr": 892562.88,
+        "fraud_inr": 0.0,
+        "daily_volume": 0.6
+      },
+      "High (> 0.90)": {
+        "transactions": 4007,
+        "pct_traffic": 0.44,
+        "frauds": 3996,
+        "total_inr": 6327984128.0,
+        "fraud_inr": 6322647552.0,
+        "daily_volume": 264.2
+      }
+    }
+  },
+  "risk_band_economics_inr": {
+    "total_test_transactions": 918617,
+    "total_test_fraud_count": 4006,
+    "total_exposed_fraud_inr": 6323046400.0,
+    "fraud_count_caught": 3999,
+    "fraud_count_missed": 7,
+    "fraud_recall_pct": 99.83,
+    "fraud_inr_caught": 6322647552.0,
+    "fraud_inr_missed": 399045.09,
+    "fraud_value_protection_pct": 99.9937,
+    "false_declines": 11,
+    "false_positive_rate": 1e-05,
+    "false_alarms_per_100k": 1.2,
+    "daily_otp_challenges": 0.6,
+    "bands": {
+      "Low (< 0.45)": {
+        "transactions": 914601,
+        "pct_traffic": 99.56,
+        "frauds": 7,
+        "total_inr": 148781039616.0,
+        "fraud_inr": 399045.09,
+        "daily_volume": 60303.4
+      },
+      "Medium (0.45-0.90)": {
+        "transactions": 9,
+        "pct_traffic": 0.0,
+        "frauds": 3,
+        "total_inr": 892562.88,
+        "fraud_inr": 0.0,
+        "daily_volume": 0.6
+      },
+      "High (> 0.90)": {
+        "transactions": 4007,
+        "pct_traffic": 0.44,
+        "frauds": 3996,
+        "total_inr": 6327984128.0,
+        "fraud_inr": 6322647552.0,
+        "daily_volume": 264.2
+      }
+    }
+  },
+  "channels": {
+    "card": {
+      "model_name": "Stacked Ensemble (LGBM + XGBoost GPU + CatBoost GPU)",
+      "data_source": "Real, anonymised",
+      "dataset_rows": 284807,
+      "test_rows": 42721,
+      "test_frauds": 52,
+      "natural_prevalence_pct": 0.122,
+      "champion_metrics": {
+        "pr_auc": 0.7578,
+        "recall": 0.69231,
+        "false_alarms_per_100k": 4.7,
+        "brier_score": 0.000402,
+        "tp": 36,
+        "fp": 2,
+        "fn": 16,
+        "tn": 42667,
+        "ci_95": [
+          0.63474,
+          0.8603
+        ]
+      },
+      "bootstrap_ci_95": {
+        "pr_auc": [
+          0.62199,
+          0.84923
+        ],
+        "recall": [
+          0.55769,
+          0.80769
+        ],
+        "precision": [
+          0.8125,
+          0.97561
+        ]
+      },
+      "thresholds": {
+        "low_risk_approve": 0.5,
+        "high_risk_decline": 0.75
+      },
+      "limitations": "Features V1-V28 are anonymized PCA components. Exact merchant and terminal attributes are obscured for consumer privacy.",
+      "rolling_origin_evaluation": {
+        "pooled_transactions": 154914,
+        "pooled_frauds": 174,
+        "pooled_pr_auc_lightgbm": 0.76003,
+        "pooled_pr_auc_xgboost": 0.78337,
+        "pooled_pr_auc_catboost": 0.76099,
+        "pooled_pr_auc_ensemble": 0.77576,
+        "bootstrap_ci_95": [
+          0.71018,
+          0.83354
+        ]
+      },
+      "review_budgets": {
+        "recall_at_budget_0.1pct": 71.15,
+        "alerts_reviewed_at_0.1pct": 43,
+        "frauds_caught_at_0.1pct": 37,
+        "recall_at_budget_0.5pct": 80.77,
+        "alerts_reviewed_at_0.5pct": 214,
+        "frauds_caught_at_0.5pct": 42,
+        "recall_at_budget_1.0pct": 84.62,
+        "alerts_reviewed_at_1.0pct": 427,
+        "frauds_caught_at_1.0pct": 44
+      },
+      "repeated_window_evaluation": {
+        "n_windows": 3,
+        "windows": [
+          {
+            "window": 1,
+            "time_range_sec": [
+              151329.0,
+              157640.0
+            ],
+            "total_transactions": 14240,
+            "fraud_count": 30,
+            "pr_auc": 0.80098,
+            "roc_auc": 0.98337,
+            "recall": 83.33
+          },
+          {
+            "window": 2,
+            "time_range_sec": [
+              157641.0,
+              164142.0
+            ],
+            "total_transactions": 14240,
+            "fraud_count": 11,
+            "pr_auc": 0.85365,
+            "roc_auc": 0.99536,
+            "recall": 90.91
+          },
+          {
+            "window": 3,
+            "time_range_sec": [
+              164144.0,
+              172792.0
+            ],
+            "total_transactions": 14241,
+            "fraud_count": 11,
+            "pr_auc": 0.46007,
+            "roc_auc": 0.95635,
+            "recall": 54.55
+          }
+        ],
+        "pr_auc_mean": 0.7049,
+        "pr_auc_std": 0.17445,
+        "roc_auc_mean": 0.97836,
+        "roc_auc_std": 0.01632,
+        "recall_mean": 76.26,
+        "recall_std": 15.66
+      }
+    },
+    "account": {
+      "model_name": "Tuned CatBoost (Champion with Native Categoricals)",
+      "data_source": "Privacy-preserving synthetic",
+      "data_source_detail": "Bank Account Fraud (BAF) NeurIPS 2022 Benchmark (Jesus et al., 1.0M applications, ~1.10% fraud)",
+      "dataset_rows": 1000000,
+      "train_rows": 96843,
+      "test_rows": 96843,
+      "test_frauds": 1428,
+      "natural_prevalence_pct": 1.475,
+      "champion_metrics": {
+        "pr_auc": 0.21945,
+        "roc_auc": 0.89548,
+        "tpr_at_5pct_fpr": 0.56162,
+        "recall": 0.56162,
+        "precision": 0.14448,
+        "false_alarms_per_100k": 4903.8,
+        "brier_score": 0.022453,
+        "tp": 802,
+        "fp": 4749,
+        "fn": 626,
+        "tn": 90666,
+        "fit_time_sec": 2.46,
+        "ci_95": [
+          0.19814,
+          0.24163
+        ]
+      },
+      "bootstrap_ci_95": {
+        "pr_auc": [
+          0.19814,
+          0.24163
+        ],
+        "recall": [
+          0.53501,
+          0.58824
+        ],
+        "precision": [
+          0.1332,
+          0.1561
+        ]
+      },
+      "thresholds": {
+        "low_risk_approve": 0.08,
+        "high_risk_decline": 0.7
+      },
+      "fairness_audit": {
+        "under_50_recall": 0.37426,
+        "under_50_far_100k": 2012.8,
+        "over_50_recall": 0.50478,
+        "over_50_far_100k": 5461.7,
+        "disparity_ratio_far": 2.71
+      },
+      "limitations": "Temporal drift across monthly distribution (NeurIPS 2022). Customer age is excluded from model features; fairness audit demonstrates disparate false alarm rate on older applicant profiles due to synthetic identity targeting.",
+      "baf_neurips_benchmark": {
+        "tpr_at_5pct_fpr": 0.56162,
+        "threshold_at_5pct_fpr": 0.28712,
+        "published_baseline_comparison": "Compared to published NeurIPS 2022 BAF baselines (Jes\u00fas et al., 2022 report LightGBM TPR@5%FPR of 52.8% and PR-AUC ~0.202), our tuned CatBoost model with native categoricals achieves 56.16% TPR@5%FPR and 0.21945 PR-AUC on Month 7.",
+        "fairness_audit": {
+          "threshold_0.29": {
+            "under_50": {
+              "n": 84176,
+              "frauds": 1010,
+              "recall_pct": 51.19,
+              "fpr_pct": 4.199
+            },
+            "age_50_plus": {
+              "n": 12667,
+              "frauds": 418,
+              "recall_pct": 68.18,
+              "fpr_pct": 10.27
+            },
+            "recall_disparity_pct": 16.99,
+            "fpr_ratio": 0.41
+          },
+          "threshold_0.10": {
+            "under_50": {
+              "n": 84176,
+              "frauds": 1010,
+              "recall_pct": 78.22,
+              "fpr_pct": 16.405
+            },
+            "age_50_plus": {
+              "n": 12667,
+              "frauds": 418,
+              "recall_pct": 90.19,
+              "fpr_pct": 30.117
+            },
+            "recall_disparity_pct": 11.97,
+            "fpr_ratio": 0.54
+          },
+          "threshold_0.20": {
+            "under_50": {
+              "n": 84176,
+              "frauds": 1010,
+              "recall_pct": 62.57,
+              "fpr_pct": 7.294
+            },
+            "age_50_plus": {
+              "n": 12667,
+              "frauds": 418,
+              "recall_pct": 77.03,
+              "fpr_pct": 16.026
+            },
+            "recall_disparity_pct": 14.46,
+            "fpr_ratio": 0.46
+          },
+          "threshold_0.40": {
+            "under_50": {
+              "n": 84176,
+              "frauds": 1010,
+              "recall_pct": 39.5,
+              "fpr_pct": 2.15
+            },
+            "age_50_plus": {
+              "n": 12667,
+              "frauds": 418,
+              "recall_pct": 55.98,
+              "fpr_pct": 5.796
+            },
+            "recall_disparity_pct": 16.48,
+            "fpr_ratio": 0.37
+          }
+        }
+      },
+      "operating_point_table": [
+        {
+          "target_fpr_pct": 1,
+          "threshold": 0.1441,
+          "recall_pct": 25.84,
+          "precision_pct": 27.87,
+          "actual_fpr_pct": 1.0,
+          "false_alarms_per_100k": 986.1,
+          "tp": 369,
+          "fp": 955,
+          "fairness_audit": {
+            "under_50": {
+              "recall_pct": 21.98,
+              "fpr_pct": 0.79,
+              "false_alarms_per_100k": 781.7
+            },
+            "age_50_plus": {
+              "recall_pct": 35.17,
+              "fpr_pct": 2.42,
+              "false_alarms_per_100k": 2344.7
+            },
+            "recall_disparity_pct": 13.19,
+            "false_alarm_ratio_older_to_younger": 3.06
+          }
+        },
+        {
+          "target_fpr_pct": 2,
+          "threshold": 0.0932,
+          "recall_pct": 37.04,
+          "precision_pct": 21.7,
+          "actual_fpr_pct": 2.0,
+          "false_alarms_per_100k": 1971.2,
+          "tp": 529,
+          "fp": 1909,
+          "fairness_audit": {
+            "under_50": {
+              "recall_pct": 33.17,
+              "fpr_pct": 1.63,
+              "false_alarms_per_100k": 1606.2
+            },
+            "age_50_plus": {
+              "recall_pct": 46.41,
+              "fpr_pct": 4.55,
+              "false_alarms_per_100k": 4397.3
+            },
+            "recall_disparity_pct": 13.24,
+            "false_alarm_ratio_older_to_younger": 2.8
+          }
+        },
+        {
+          "target_fpr_pct": 5,
+          "threshold": 0.0436,
+          "recall_pct": 56.72,
+          "precision_pct": 14.51,
+          "actual_fpr_pct": 5.0,
+          "false_alarms_per_100k": 4926.5,
+          "tp": 810,
+          "fp": 4771,
+          "fairness_audit": {
+            "under_50": {
+              "recall_pct": 52.48,
+              "fpr_pct": 4.21,
+              "false_alarms_per_100k": 4155.6
+            },
+            "age_50_plus": {
+              "recall_pct": 66.99,
+              "fpr_pct": 10.39,
+              "false_alarms_per_100k": 10049.7
+            },
+            "recall_disparity_pct": 14.51,
+            "false_alarm_ratio_older_to_younger": 2.47
+          }
+        }
+      ],
+      "fairness_accuracy_tradeoff": {
+        "intervention": "Per-Group Calibration (Equalized False Alarm Rate)",
+        "target_operating_point": "5% FPR",
+        "baseline": {
+          "uniform_threshold": 0.0436,
+          "overall_recall_pct": 56.72,
+          "younger_fpr_pct": 4.21,
+          "older_fpr_pct": 10.39,
+          "fpr_disparity_ratio": 2.47
+        },
+        "fair_calibrated": {
+          "younger_threshold": 0.0376,
+          "older_threshold": 0.0863,
+          "overall_recall_pct": 53.29,
+          "younger_fpr_pct": 5.0,
+          "older_fpr_pct": 5.0,
+          "fpr_disparity_ratio": 1.0
+        },
+        "tradeoff_summary": "Per-group calibration equalizes false alarms (FPR ratio drops from 2.47x to 1.0x), with a recall delta of -3.43%."
+      }
+    },
+    "upi": {
+      "model_name": "Tuned LightGBM (Platt-Calibrated) - Indian UPI Transactions",
+      "data_source": "Simulated by us",
+      "data_source_detail": "Synthetic Indian UPI Transaction Stream generated by ml/channels/upi_sim.py (~1.0M tx over 60 days, ~0.40% fraud)",
+      "dataset_rows": 1000000,
+      "train_rows": 145716,
+      "test_rows": 145716,
+      "test_frauds": 563,
+      "natural_prevalence_pct": 0.386,
+      "champion_metrics": {
+        "pr_auc": 0.78286,
+        "roc_auc": 0.91604,
+        "recall": 0.87922,
+        "false_alarms_per_100k": 21.3,
+        "brier_score": 0.000882,
+        "tp": 464,
+        "fp": 31,
+        "fn": 99,
+        "tn": 145122,
+        "ci_95": [
+          0.75218,
+          0.81432
+        ]
+      },
+      "bootstrap_ci_95": {
+        "pr_auc": [
+          0.75218,
+          0.81432
+        ],
+        "recall": [
+          0.8508,
+          0.90764
+        ],
+        "precision": [
+          0.91633,
+          0.96266
+        ]
+      },
+      "thresholds": {
+        "low_risk_approve": 0.15,
+        "high_risk_decline": 0.87
+      },
+      "scenario_recall": {
+        "COLLECT_REQUEST_SCAM": 0.99435,
+        "QR_PHISHING": 1.0,
+        "REMOTE_ACCESS_TAKEOVER": 1.0,
+        "SIM_SWAP_BURST": 1.0,
+        "UNSEEN_DIGITAL_ARREST_EXTORTION": 0.0
+      },
+      "limitations": "Synthetic simulator built by us (clearly labeled SIMULATED). Evaluates concept drift: while known scams achieve near 100% recall, zero-day Digital Arrest extortion without device malware exhibits marked detection degradation.",
+      "unseen_scam_generalization": {
+        "digital_arrest_zero_shot_recall_pct": 0.94,
+        "scam_breakdown": {
+          "COLLECT_REQUEST_SCAM": {
+            "total_count": 177,
+            "caught_count": 176,
+            "recall_pct": 99.44
+          },
+          "QR_PHISHING": {
+            "total_count": 106,
+            "caught_count": 106,
+            "recall_pct": 100.0
+          },
+          "REMOTE_ACCESS_TAKEOVER": {
+            "total_count": 126,
+            "caught_count": 124,
+            "recall_pct": 98.41
+          },
+          "SIM_SWAP_BURST": {
+            "total_count": 85,
+            "caught_count": 85,
+            "recall_pct": 100.0
+          },
+          "UNSEEN_DIGITAL_ARREST_EXTORTION": {
+            "total_count": 106,
+            "caught_count": 1,
+            "recall_pct": 0.94
+          }
+        },
+        "analyst_feedback_experiment": {
+          "0pct_feedback": {
+            "feedback_ratio": 0.0,
+            "analyst_confirmed_cases": 0,
+            "held_out_test_cases": 106,
+            "held_out_recall_pct": 0.94
+          },
+          "1pct_feedback": {
+            "feedback_ratio": 0.01,
+            "analyst_confirmed_cases": 1,
+            "held_out_test_cases": 105,
+            "held_out_recall_pct": 4.76
+          },
+          "5pct_feedback": {
+            "feedback_ratio": 0.05,
+            "analyst_confirmed_cases": 5,
+            "held_out_test_cases": 101,
+            "held_out_recall_pct": 15.84
+          },
+          "10pct_feedback": {
+            "feedback_ratio": 0.1,
+            "analyst_confirmed_cases": 10,
+            "held_out_test_cases": 96,
+            "held_out_recall_pct": 37.5
+          }
+        }
+      },
+      "drift_simulation": {
+        "Days 52..54": {
+          "static_pr_auc": 0.78983,
+          "retrained_pr_auc": 0.78983,
+          "lift": 0.0
+        },
+        "Days 55..57": {
+          "static_pr_auc": 0.75254,
+          "retrained_pr_auc": 0.86387,
+          "lift": 0.11133
+        },
+        "Days 58..60": {
+          "static_pr_auc": 0.80762,
+          "retrained_pr_auc": 0.83662,
+          "lift": 0.02899
+        }
+      },
+      "conformal_uncertainty": {
+        "auto_approve_pct": 99.66,
+        "auto_decline_pct": 0.337,
+        "uncertain_human_review_pct": 0.0,
+        "total_uncertain_routed": 7,
+        "frauds_in_uncertain_band": 3,
+        "uncertainty_coverage_pct": 100.0
+      },
+      "scenario_breakdown": {
+        "SIM_SWAP_BURST": {
+          "fraud_count": 85,
+          "baseline_alert_recall_pct": 100.0,
+          "behavior_dev_alert_recall_pct": 98.75,
+          "behavior_dev_decline_recall_pct": 93.75,
+          "delta_alert_recall_pct": -1.25
+        },
+        "COLLECT_REQUEST_SCAM": {
+          "fraud_count": 177,
+          "baseline_alert_recall_pct": 100.0,
+          "behavior_dev_alert_recall_pct": 100.0,
+          "behavior_dev_decline_recall_pct": 100.0,
+          "delta_alert_recall_pct": 0.0
+        },
+        "UNSEEN_DIGITAL_ARREST_EXTORTION": {
+          "fraud_count": 106,
+          "baseline_alert_recall_pct": 0.0,
+          "behavior_dev_alert_recall_pct": 0.0,
+          "behavior_dev_decline_recall_pct": 0.0,
+          "delta_alert_recall_pct": 0.0
+        },
+        "QR_PHISHING": {
+          "fraud_count": 106,
+          "baseline_alert_recall_pct": 100.0,
+          "behavior_dev_alert_recall_pct": 100.0,
+          "behavior_dev_decline_recall_pct": 100.0,
+          "delta_alert_recall_pct": 0.0
+        },
+        "REMOTE_ACCESS_TAKEOVER": {
+          "fraud_count": 126,
+          "baseline_alert_recall_pct": 100.0,
+          "behavior_dev_alert_recall_pct": 99.17,
+          "behavior_dev_decline_recall_pct": 99.17,
+          "delta_alert_recall_pct": -0.83
+        }
+      },
+      "feedback_loop_curve": [
+        {
+          "feedback_fraction_pct": 0.0,
+          "labeled_samples_count": 0,
+          "time_to_recover_days": 0.0,
+          "step_up_alert_recall_pct": 0.0,
+          "hard_decline_recall_pct": 0.0
+        },
+        {
+          "feedback_fraction_pct": 1.0,
+          "labeled_samples_count": 1,
+          "time_to_recover_days": 0.07,
+          "step_up_alert_recall_pct": 0.0,
+          "hard_decline_recall_pct": 0.0
+        },
+        {
+          "feedback_fraction_pct": 5.0,
+          "labeled_samples_count": 5,
+          "time_to_recover_days": 0.33,
+          "step_up_alert_recall_pct": 10.75,
+          "hard_decline_recall_pct": 5.38
+        },
+        {
+          "feedback_fraction_pct": 10.0,
+          "labeled_samples_count": 11,
+          "time_to_recover_days": 0.73,
+          "step_up_alert_recall_pct": 17.24,
+          "hard_decline_recall_pct": 4.6
+        }
+      ]
+    },
+    "transfer_wallet": {
+      "model_name": "Tuned LightGBM (Platt-Calibrated) - Online Transfers & Wallets",
+      "data_source": "Simulated (agent-based)",
+      "data_source_detail": "PaySim Agent-Based Mobile Money Simulator (Lopez-Rojas et al., 6.36M tx, 8,213 frauds, 0.129% prevalence)",
+      "dataset_rows": 6362620,
+      "train_rows": 4493017,
+      "test_rows": 918617,
+      "test_frauds": 4006,
+      "natural_prevalence_pct": 0.436,
+      "champion_metrics": {
+        "pr_auc": 0.99976,
+        "roc_auc": 0.99999,
+        "recall": 0.99775,
+        "precision": 0.99626,
+        "f1": 0.99701,
+        "fpr": 2e-05,
+        "false_alarms_per_100k": 1.6,
+        "tp": 3997,
+        "fp": 15,
+        "fn": 9,
+        "tn": 914596,
+        "fit_time_sec": 0.2
+      },
+      "bootstrap_ci_95": {
+        "pr_auc": [
+          0.99811,
+          1.0
+        ],
+        "recall": [
+          0.99768,
+          1.0
+        ],
+        "precision": [
+          0.98253,
+          0.99776
+        ]
+      },
+      "thresholds": {
+        "low_risk_approve": 0.45,
+        "high_risk_decline": 0.9,
+        "medium_risk_otp": [
+          0.45,
+          0.9
+        ],
+        "optimization_basis": "Validation Expected Cost Minimization"
+      },
+      "limitations": "Agent-based synthetic simulator with deterministic fraud patterns (TRANSFER followed by CASH_OUT). Real transfers require graph mule detection."
+    }
+  },
+  "api_latency": {
+    "sample_size": 1000,
+    "p50_ms": 7.92,
+    "p90_ms": 13.94,
+    "p95_ms": 14.36,
+    "p99_ms": 15.2,
+    "mean_ms": 9.28,
+    "min_ms": 6.2,
+    "max_ms": 16.53,
+    "roundtrip_p50_ms": 11.93,
+    "roundtrip_p95_ms": 18.3,
+    "by_channel_p50": {
+      "transfer_wallet": 13.77,
+      "card": 8.14,
+      "account": 7.53,
+      "upi": 7.35
+    },
+    "by_channel_p95": {
+      "transfer_wallet": 15.12,
+      "card": 9.04,
+      "account": 8.38,
+      "upi": 8.09
+    }
+  },
+  "concept_drift": {
+    "timestamp": "2026-11-11T08:47:22Z",
+    "baf_account_drift": {
+      "channel": "account",
+      "description": "Comparison of static model trained on Months 0-2 vs monthly retrained models over Months 3 to 7",
+      "series": [
+        {
+          "month": 3,
+          "total_applications": 150936,
+          "fraud_count": 1392,
+          "static_model": {
+            "pr_auc": 0.14414,
+            "tpr_at_5pct_fpr": 55.89
+          },
+          "monthly_retrained_model": {
+            "pr_auc": 0.14414,
+            "tpr_at_5pct_fpr": 55.89
+          },
+          "pr_auc_delta": 0.0,
+          "tpr_delta_pct": 0.0
+        },
+        {
+          "month": 4,
+          "total_applications": 127691,
+          "fraud_count": 1452,
+          "static_model": {
+            "pr_auc": 0.15601,
+            "tpr_at_5pct_fpr": 54.75
+          },
+          "monthly_retrained_model": {
+            "pr_auc": 0.16088,
+            "tpr_at_5pct_fpr": 54.89
+          },
+          "pr_auc_delta": 0.00487,
+          "tpr_delta_pct": 0.14
+        },
+        {
+          "month": 5,
+          "total_applications": 119323,
+          "fraud_count": 1411,
+          "static_model": {
+            "pr_auc": 0.16354,
+            "tpr_at_5pct_fpr": 52.02
+          },
+          "monthly_retrained_model": {
+            "pr_auc": 0.17507,
+            "tpr_at_5pct_fpr": 52.66
+          },
+          "pr_auc_delta": 0.01154,
+          "tpr_delta_pct": 0.64
+        },
+        {
+          "month": 6,
+          "total_applications": 108168,
+          "fraud_count": 1450,
+          "static_model": {
+            "pr_auc": 0.15894,
+            "tpr_at_5pct_fpr": 50.48
+          },
+          "monthly_retrained_model": {
+            "pr_auc": 0.17301,
+            "tpr_at_5pct_fpr": 51.17
+          },
+          "pr_auc_delta": 0.01407,
+          "tpr_delta_pct": 0.69
+        },
+        {
+          "month": 7,
+          "total_applications": 96843,
+          "fraud_count": 1428,
+          "static_model": {
+            "pr_auc": 0.19497,
+            "tpr_at_5pct_fpr": 56.23
+          },
+          "monthly_retrained_model": {
+            "pr_auc": 0.20655,
+            "tpr_at_5pct_fpr": 56.72
+          },
+          "pr_auc_delta": 0.01158,
+          "tpr_delta_pct": 0.49
+        }
+      ]
+    },
+    "upi_drift": {
+      "channel": "upi",
+      "description": "Comparison of static model trained on Days 1-15 vs periodically retrained models over bi-weekly cohorts",
+      "series": [
+        {
+          "cohort": "Cohort 2 (Days 16-30)",
+          "days": [
+            16,
+            30
+          ],
+          "total_transactions": 264052,
+          "fraud_count": 1012,
+          "static_model": {
+            "pr_auc": 0.86921,
+            "recall_pct": 83.7
+          },
+          "retrained_model": {
+            "pr_auc": 0.86921,
+            "recall_pct": 83.7
+          },
+          "pr_auc_delta": 0.0,
+          "recall_delta_pct": 0.0
+        },
+        {
+          "cohort": "Cohort 3 (Days 31-45)",
+          "days": [
+            31,
+            45
+          ],
+          "total_transactions": 247078,
+          "fraud_count": 870,
+          "static_model": {
+            "pr_auc": 0.87231,
+            "recall_pct": 81.49
+          },
+          "retrained_model": {
+            "pr_auc": 0.87426,
+            "recall_pct": 76.67
+          },
+          "pr_auc_delta": 0.00196,
+          "recall_delta_pct": -4.83
+        },
+        {
+          "cohort": "Cohort 4 (Days 46-60, Drift)",
+          "days": [
+            46,
+            60
+          ],
+          "total_transactions": 242605,
+          "fraud_count": 955,
+          "static_model": {
+            "pr_auc": 0.81107,
+            "recall_pct": 75.18
+          },
+          "retrained_model": {
+            "pr_auc": 0.82502,
+            "recall_pct": 75.71
+          },
+          "pr_auc_delta": 0.01395,
+          "recall_delta_pct": 0.52
+        }
+      ]
+    }
+  },
+  "uncertainty_routing": {
+    "timestamp": "2026-11-14T16:38:31Z",
+    "description": "Calibrated uncertainty & conformal routing evaluation across payment channels at natural prevalence",
+    "channels": {
+      "card": {
+        "total_evaluated": 56961,
+        "total_frauds": 75,
+        "natural_prevalence_pct": 0.1317,
+        "coverage_pct": 99.93,
+        "review_workload_pct": 0.072,
+        "counts": {
+          "auto_approve": 56863,
+          "needs_human_review": 41,
+          "auto_decline": 57
+        },
+        "frauds_captured": {
+          "in_auto_approve_escaped": 16,
+          "in_human_review_queue": 9,
+          "in_auto_decline_blocked": 50
+        },
+        "quality_metrics": {
+          "auto_approve_fraud_escape_rate_pct": 0.0281,
+          "review_queue_fraud_yield_pct": 21.95,
+          "auto_decline_precision_pct": 87.72
+        },
+        "thresholds_used": {
+          "tau_low": 0.2,
+          "tau_high": 0.7,
+          "uncertainty_threshold": 0.08
+        }
+      },
+      "account": {
+        "total_evaluated": 96843,
+        "total_frauds": 1428,
+        "natural_prevalence_pct": 1.4746,
+        "coverage_pct": 96.97,
+        "review_workload_pct": 3.028,
+        "counts": {
+          "auto_approve": 93911,
+          "needs_human_review": 2932,
+          "auto_decline": 0
+        },
+        "frauds_captured": {
+          "in_auto_approve_escaped": 839,
+          "in_human_review_queue": 589,
+          "in_auto_decline_blocked": 0
+        },
+        "quality_metrics": {
+          "auto_approve_fraud_escape_rate_pct": 0.8934,
+          "review_queue_fraud_yield_pct": 20.09,
+          "auto_decline_precision_pct": 0.0
+        },
+        "thresholds_used": {
+          "tau_low": 0.08,
+          "tau_high": 0.5,
+          "uncertainty_threshold": 0.1
+        }
+      },
+      "transfer_wallet": {
+        "total_evaluated": 918617,
+        "total_frauds": 4006,
+        "natural_prevalence_pct": 0.4361,
+        "coverage_pct": 99.9,
+        "review_workload_pct": 0.103,
+        "counts": {
+          "auto_approve": 914585,
+          "needs_human_review": 949,
+          "auto_decline": 3083
+        },
+        "frauds_captured": {
+          "in_auto_approve_escaped": 5,
+          "in_human_review_queue": 918,
+          "in_auto_decline_blocked": 3083
+        },
+        "quality_metrics": {
+          "auto_approve_fraud_escape_rate_pct": 0.0005,
+          "review_queue_fraud_yield_pct": 96.73,
+          "auto_decline_precision_pct": 100.0
+        },
+        "thresholds_used": {
+          "tau_low": 0.45,
+          "tau_high": 0.9,
+          "uncertainty_threshold": 0.06
+        }
+      }
+    }
+  },
+  "champion_registry": {
+    "version": "2.0.0",
+    "last_updated": "2026-11-11",
+    "champions": {
+      "transfer_wallet": {
+        "channel": "transfer_wallet",
+        "display_name": "Online Transfers & Wallets",
+        "dataset_name": "PaySim Synthetic Mobile Money",
+        "model_name": "Tuned LightGBM (Sequence-Aware)",
+        "algorithm": "LightGBM + Platt Sigmoid Calibration + History Sequence Features",
+        "version": "2.0.0",
+        "trained_date": "2026-11-11",
+        "pr_auc": 0.99976,
+        "roc_auc": 0.99999,
+        "recall": 0.99775,
+        "precision": 0.99626,
+        "bootstrap_ci_95": {
+          "pr_auc": [
+            0.99811,
+            1.0
+          ]
+        },
+        "thresholds": {
+          "low_risk_approve": 0.45,
+          "high_risk_decline": 0.9
+        },
+        "key_findings": {
+          "natural_recall": "99.05%",
+          "split_3_transfers_recall": "90.91% (recovered from 0.55% with sequence features)",
+          "held_out_limitation": "Delayed 4h splits drop to 5.97% recall due to window boundaries"
+        }
+      },
+      "card": {
+        "channel": "card",
+        "display_name": "Card Payments",
+        "dataset_name": "European Cardholders (ULB Machine Learning Group)",
+        "model_name": "Stacked Ensemble (LGBM + XGBoost GPU + CatBoost GPU)",
+        "algorithm": "Soft-Voting Weighted Ensemble + Platt Sigmoid Calibration",
+        "version": "2.0.0",
+        "trained_date": "2026-11-11",
+        "pr_auc": 0.74843,
+        "roc_auc": 0.98062,
+        "recall": 0.76923,
+        "precision": 0.28777,
+        "bootstrap_ci_95": {
+          "pr_auc": [
+            0.62199,
+            0.84923
+          ]
+        },
+        "thresholds": {
+          "low_risk_approve": 0.2,
+          "high_risk_decline": 0.7
+        },
+        "repeated_window_evaluation": {},
+        "review_budgets": {}
+      },
+      "account": {
+        "channel": "account",
+        "display_name": "Bank Account Opening",
+        "dataset_name": "Bank Account Fraud (BAF - NeurIPS 2022)",
+        "model_name": "Tuned CatBoost (Native Categoricals)",
+        "algorithm": "CatBoost (Ordered Boosting) + Native Categoricals",
+        "version": "2.0.0",
+        "trained_date": "2026-11-11",
+        "pr_auc": 0.21945,
+        "roc_auc": 0.89548,
+        "recall": 0.56162,
+        "precision": 0.14448,
+        "tpr_at_5pct_fpr": 0.56162,
+        "bootstrap_ci_95": {
+          "pr_auc": [
+            0.19814,
+            0.24163
+          ]
+        },
+        "thresholds": {
+          "low_risk_approve": 0.08,
+          "high_risk_decline": 0.7
+        },
+        "operating_point_table": [
+          {
+            "target_fpr_pct": 1,
+            "threshold": 0.1441,
+            "recall_pct": 25.84,
+            "precision_pct": 27.87,
+            "actual_fpr_pct": 1.0,
+            "false_alarms_per_100k": 986.1,
+            "tp": 369,
+            "fp": 955,
+            "fairness_audit": {
+              "under_50": {
+                "recall_pct": 21.98,
+                "fpr_pct": 0.79,
+                "false_alarms_per_100k": 781.7
+              },
+              "age_50_plus": {
+                "recall_pct": 35.17,
+                "fpr_pct": 2.42,
+                "false_alarms_per_100k": 2344.7
+              },
+              "recall_disparity_pct": 13.19,
+              "false_alarm_ratio_older_to_younger": 3.06
+            }
+          },
+          {
+            "target_fpr_pct": 2,
+            "threshold": 0.0932,
+            "recall_pct": 37.04,
+            "precision_pct": 21.7,
+            "actual_fpr_pct": 2.0,
+            "false_alarms_per_100k": 1971.2,
+            "tp": 529,
+            "fp": 1909,
+            "fairness_audit": {
+              "under_50": {
+                "recall_pct": 33.17,
+                "fpr_pct": 1.63,
+                "false_alarms_per_100k": 1606.2
+              },
+              "age_50_plus": {
+                "recall_pct": 46.41,
+                "fpr_pct": 4.55,
+                "false_alarms_per_100k": 4397.3
+              },
+              "recall_disparity_pct": 13.24,
+              "false_alarm_ratio_older_to_younger": 2.8
+            }
+          },
+          {
+            "target_fpr_pct": 5,
+            "threshold": 0.0436,
+            "recall_pct": 56.72,
+            "precision_pct": 14.51,
+            "actual_fpr_pct": 5.0,
+            "false_alarms_per_100k": 4926.5,
+            "tp": 810,
+            "fp": 4771,
+            "fairness_audit": {
+              "under_50": {
+                "recall_pct": 52.48,
+                "fpr_pct": 4.21,
+                "false_alarms_per_100k": 4155.6
+              },
+              "age_50_plus": {
+                "recall_pct": 66.99,
+                "fpr_pct": 10.39,
+                "false_alarms_per_100k": 10049.7
+              },
+              "recall_disparity_pct": 14.51,
+              "false_alarm_ratio_older_to_younger": 2.47
+            }
+          }
+        ],
+        "fairness_accuracy_tradeoff": {
+          "intervention": "Per-Group Calibration (Equalized False Alarm Rate)",
+          "target_operating_point": "5% FPR",
+          "baseline": {
+            "uniform_threshold": 0.0436,
+            "overall_recall_pct": 56.72,
+            "younger_fpr_pct": 4.21,
+            "older_fpr_pct": 10.39,
+            "fpr_disparity_ratio": 2.47
+          },
+          "fair_calibrated": {
+            "younger_threshold": 0.0376,
+            "older_threshold": 0.0863,
+            "overall_recall_pct": 53.29,
+            "younger_fpr_pct": 5.0,
+            "older_fpr_pct": 5.0,
+            "fpr_disparity_ratio": 1.0
+          },
+          "tradeoff_summary": "Per-group calibration equalizes false alarms (FPR ratio drops from 2.47x to 1.0x), with a recall delta of -3.43%."
+        }
+      },
+      "upi": {
+        "channel": "upi",
+        "display_name": "UPI Transactions",
+        "dataset_name": "Synthetic Indian UPI Transaction Stream",
+        "model_name": "Tuned LightGBM (Behavior-Deviation)",
+        "algorithm": "LightGBM + Payer Baseline Deviation Features",
+        "version": "2.0.0",
+        "trained_date": "2026-11-11",
+        "pr_auc": 0.78286,
+        "roc_auc": 0.91604,
+        "recall": 0.87922,
+        "precision": 0.93737,
+        "bootstrap_ci_95": {
+          "pr_auc": [
+            0.75218,
+            0.81432
+          ]
+        },
+        "thresholds": {
+          "low_risk_approve": 0.15,
+          "high_risk_decline": 0.87
+        },
+        "active_learning_feedback_curve": [
+          {
+            "feedback_fraction_pct": 0.0,
+            "labeled_samples_count": 0,
+            "time_to_recover_days": 0.0,
+            "step_up_alert_recall_pct": 0.0,
+            "hard_decline_recall_pct": 0.0
+          },
+          {
+            "feedback_fraction_pct": 1.0,
+            "labeled_samples_count": 1,
+            "time_to_recover_days": 0.07,
+            "step_up_alert_recall_pct": 0.0,
+            "hard_decline_recall_pct": 0.0
+          },
+          {
+            "feedback_fraction_pct": 5.0,
+            "labeled_samples_count": 5,
+            "time_to_recover_days": 0.33,
+            "step_up_alert_recall_pct": 10.75,
+            "hard_decline_recall_pct": 5.38
+          },
+          {
+            "feedback_fraction_pct": 10.0,
+            "labeled_samples_count": 11,
+            "time_to_recover_days": 0.73,
+            "step_up_alert_recall_pct": 17.24,
+            "hard_decline_recall_pct": 4.6
+          }
+        ]
+      }
+    }
+  }
+}
