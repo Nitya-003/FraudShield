@@ -1,0 +1,6 @@
+Feature Group,Feature Count,PR-AUC,Recall (%),Precision (%),False Positives,False Alarms / 100k
+1. Basic + Type Only,11,0.40132,56.67,16.72,11305,1236.0
+2. + Pre-Tx Balances & Emptying,15,0.99975,99.98,99.4,24,2.6
+3. + Dest Zero & Merchant Flags,17,0.99975,99.98,99.4,24,2.6
+4. Basic + Type + Receiver History,17,0.54585,81.88,20.34,12847,1404.6
+5. All Features (Complete Pre-Tx System),23,0.99976,99.98,99.53,19,2.1
