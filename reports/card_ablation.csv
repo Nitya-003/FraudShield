@@ -1,0 +1,5 @@
+Feature Block,Feature Count,Test PR-AUC,Test Recall,False Alarms / 100k
+1. Amount & Time Only,6,0.43042,17.31%,0.0
+2. + Top PCA (V1..V10),16,0.75309,82.69%,67.9
+3. + Mid PCA (V1..V20),26,0.75061,71.15%,37.5
+4. All Features (V1..V28),34,0.73289,73.08%,28.1

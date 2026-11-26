@@ -1,0 +1,72 @@
+{
+  "timestamp": "2026-11-11T08:46:42Z",
+  "channel": "upi",
+  "scenario_detection_breakdown": {
+    "SIM_SWAP_BURST": {
+      "fraud_count": 85,
+      "baseline_alert_recall_pct": 100.0,
+      "behavior_dev_alert_recall_pct": 98.75,
+      "behavior_dev_decline_recall_pct": 93.75,
+      "delta_alert_recall_pct": -1.25
+    },
+    "COLLECT_REQUEST_SCAM": {
+      "fraud_count": 177,
+      "baseline_alert_recall_pct": 100.0,
+      "behavior_dev_alert_recall_pct": 100.0,
+      "behavior_dev_decline_recall_pct": 100.0,
+      "delta_alert_recall_pct": 0.0
+    },
+    "UNSEEN_DIGITAL_ARREST_EXTORTION": {
+      "fraud_count": 106,
+      "baseline_alert_recall_pct": 0.0,
+      "behavior_dev_alert_recall_pct": 0.0,
+      "behavior_dev_decline_recall_pct": 0.0,
+      "delta_alert_recall_pct": 0.0
+    },
+    "QR_PHISHING": {
+      "fraud_count": 106,
+      "baseline_alert_recall_pct": 100.0,
+      "behavior_dev_alert_recall_pct": 100.0,
+      "behavior_dev_decline_recall_pct": 100.0,
+      "delta_alert_recall_pct": 0.0
+    },
+    "REMOTE_ACCESS_TAKEOVER": {
+      "fraud_count": 126,
+      "baseline_alert_recall_pct": 100.0,
+      "behavior_dev_alert_recall_pct": 99.17,
+      "behavior_dev_decline_recall_pct": 99.17,
+      "delta_alert_recall_pct": -0.83
+    }
+  },
+  "active_learning_feedback_curve": [
+    {
+      "feedback_fraction_pct": 0.0,
+      "labeled_samples_count": 0,
+      "time_to_recover_days": 0.0,
+      "step_up_alert_recall_pct": 0.0,
+      "hard_decline_recall_pct": 0.0
+    },
+    {
+      "feedback_fraction_pct": 1.0,
+      "labeled_samples_count": 1,
+      "time_to_recover_days": 0.07,
+      "step_up_alert_recall_pct": 0.0,
+      "hard_decline_recall_pct": 0.0
+    },
+    {
+      "feedback_fraction_pct": 5.0,
+      "labeled_samples_count": 5,
+      "time_to_recover_days": 0.33,
+      "step_up_alert_recall_pct": 10.75,
+      "hard_decline_recall_pct": 5.38
+    },
+    {
+      "feedback_fraction_pct": 10.0,
+      "labeled_samples_count": 11,
+      "time_to_recover_days": 0.73,
+      "step_up_alert_recall_pct": 17.24,
+      "hard_decline_recall_pct": 4.6
+    }
+  ],
+  "analyst_rate_assumption": "15 verified fraud cases reviewed per day"
+}

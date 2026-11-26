@@ -1,0 +1,87 @@
+{
+  "timestamp": "2026-11-14T16:38:31Z",
+  "description": "Calibrated uncertainty & conformal routing evaluation across payment channels at natural prevalence",
+  "channels": {
+    "card": {
+      "total_evaluated": 56961,
+      "total_frauds": 75,
+      "natural_prevalence_pct": 0.1317,
+      "coverage_pct": 99.93,
+      "review_workload_pct": 0.072,
+      "counts": {
+        "auto_approve": 56863,
+        "needs_human_review": 41,
+        "auto_decline": 57
+      },
+      "frauds_captured": {
+        "in_auto_approve_escaped": 16,
+        "in_human_review_queue": 9,
+        "in_auto_decline_blocked": 50
+      },
+      "quality_metrics": {
+        "auto_approve_fraud_escape_rate_pct": 0.0281,
+        "review_queue_fraud_yield_pct": 21.95,
+        "auto_decline_precision_pct": 87.72
+      },
+      "thresholds_used": {
+        "tau_low": 0.2,
+        "tau_high": 0.7,
+        "uncertainty_threshold": 0.08
+      }
+    },
+    "account": {
+      "total_evaluated": 96843,
+      "total_frauds": 1428,
+      "natural_prevalence_pct": 1.4746,
+      "coverage_pct": 96.97,
+      "review_workload_pct": 3.028,
+      "counts": {
+        "auto_approve": 93911,
+        "needs_human_review": 2932,
+        "auto_decline": 0
+      },
+      "frauds_captured": {
+        "in_auto_approve_escaped": 839,
+        "in_human_review_queue": 589,
+        "in_auto_decline_blocked": 0
+      },
+      "quality_metrics": {
+        "auto_approve_fraud_escape_rate_pct": 0.8934,
+        "review_queue_fraud_yield_pct": 20.09,
+        "auto_decline_precision_pct": 0.0
+      },
+      "thresholds_used": {
+        "tau_low": 0.08,
+        "tau_high": 0.5,
+        "uncertainty_threshold": 0.1
+      }
+    },
+    "transfer_wallet": {
+      "total_evaluated": 918617,
+      "total_frauds": 4006,
+      "natural_prevalence_pct": 0.4361,
+      "coverage_pct": 99.9,
+      "review_workload_pct": 0.103,
+      "counts": {
+        "auto_approve": 914585,
+        "needs_human_review": 949,
+        "auto_decline": 3083
+      },
+      "frauds_captured": {
+        "in_auto_approve_escaped": 5,
+        "in_human_review_queue": 918,
+        "in_auto_decline_blocked": 3083
+      },
+      "quality_metrics": {
+        "auto_approve_fraud_escape_rate_pct": 0.0005,
+        "review_queue_fraud_yield_pct": 96.73,
+        "auto_decline_precision_pct": 100.0
+      },
+      "thresholds_used": {
+        "tau_low": 0.45,
+        "tau_high": 0.9,
+        "uncertainty_threshold": 0.06
+      }
+    }
+  }
+}

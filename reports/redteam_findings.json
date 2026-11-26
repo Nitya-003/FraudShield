@@ -1,0 +1,120 @@
+{
+  "ablation_results": [
+    {
+      "Feature Group": "1. Basic + Type Only",
+      "Feature Count": 11,
+      "PR-AUC": 0.40132,
+      "Recall (%)": 56.67,
+      "Precision (%)": 16.72,
+      "False Positives": 11305,
+      "False Alarms / 100k": 1236.0
+    },
+    {
+      "Feature Group": "2. + Pre-Tx Balances & Emptying",
+      "Feature Count": 15,
+      "PR-AUC": 0.99975,
+      "Recall (%)": 99.98,
+      "Precision (%)": 99.4,
+      "False Positives": 24,
+      "False Alarms / 100k": 2.6
+    },
+    {
+      "Feature Group": "3. + Dest Zero & Merchant Flags",
+      "Feature Count": 17,
+      "PR-AUC": 0.99975,
+      "Recall (%)": 99.98,
+      "Precision (%)": 99.4,
+      "False Positives": 24,
+      "False Alarms / 100k": 2.6
+    },
+    {
+      "Feature Group": "4. Basic + Type + Receiver History",
+      "Feature Count": 17,
+      "PR-AUC": 0.54585,
+      "Recall (%)": 81.88,
+      "Precision (%)": 20.34,
+      "False Positives": 12847,
+      "False Alarms / 100k": 1404.6
+    },
+    {
+      "Feature Group": "5. All Features (Complete Pre-Tx System)",
+      "Feature Count": 23,
+      "PR-AUC": 0.99976,
+      "Recall (%)": 99.98,
+      "Precision (%)": 99.53,
+      "False Positives": 19,
+      "False Alarms / 100k": 2.1
+    }
+  ],
+  "lofo_results": [
+    {
+      "Omitted Feature": "None (Full 23 Features)",
+      "PR-AUC": 0.99976,
+      "PR-AUC Delta": 0.0
+    },
+    {
+      "Omitted Feature": "Excluding 'amount'",
+      "PR-AUC": 0.99977,
+      "PR-AUC Delta": 0.0
+    },
+    {
+      "Omitted Feature": "Excluding 'amount_to_balance_ratio'",
+      "PR-AUC": 0.96487,
+      "PR-AUC Delta": -0.03489
+    },
+    {
+      "Omitted Feature": "Excluding 'oldbalanceDest'",
+      "PR-AUC": 0.99976,
+      "PR-AUC Delta": -0.0
+    },
+    {
+      "Omitted Feature": "Excluding 'hour_of_day'",
+      "PR-AUC": 0.99976,
+      "PR-AUC Delta": 0.0
+    },
+    {
+      "Omitted Feature": "Excluding 'dest_tx_last_6h'",
+      "PR-AUC": 0.99976,
+      "PR-AUC Delta": -0.0
+    },
+    {
+      "Omitted Feature": "Excluding 'dest_total_past_amount'",
+      "PR-AUC": 0.99975,
+      "PR-AUC Delta": -1e-05
+    }
+  ],
+  "shuffled_label_pr_auc": 0.00437,
+  "natural_prevalence": 0.00436,
+  "tree_simplicity": {
+    "depth_2": {
+      "pr_auc": 0.99564,
+      "recall": 0.996,
+      "precision": 0.994,
+      "fp": 24
+    },
+    "depth_3": {
+      "pr_auc": 0.99826,
+      "recall": 0.9993,
+      "precision": 0.999,
+      "fp": 4
+    }
+  },
+  "multi_seed_with_subsampling": {
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "scores": [
+      0.99978,
+      0.99977,
+      0.99981,
+      0.99977,
+      0.99977
+    ],
+    "mean": 0.99978,
+    "std": 1.4e-05
+  }
+}

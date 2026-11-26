@@ -1,0 +1,101 @@
+{
+  "timestamp": "2026-11-15T16:35:43.702552+00:00Z",
+  "held_out_scam": "UNSEEN_DIGITAL_ARREST_EXTORTION",
+  "dataset_summary": {
+    "total_transactions": 4587,
+    "legitimate_transactions": 4499,
+    "unseen_scam_transactions": 88,
+    "natural_prevalence_pct": 1.918
+  },
+  "evaluation_methodology": "Held-out zero-day scam transactions evaluated under fixed operational review budgets. Supervised baseline relies on static tree weights; novelty score flags high-value payer behavioral deviations and isolation forest outliers.",
+  "alert_budget_evaluation": [
+    {
+      "budget_pct": 0.1,
+      "alert_capacity_txns": 5,
+      "supervised_baseline": {
+        "unseen_scam_caught": 3,
+        "recall_pct": 3.41,
+        "precision_pct": 60.0
+      },
+      "unsupervised_novelty": {
+        "unseen_scam_caught": 5,
+        "recall_pct": 5.68,
+        "precision_pct": 100.0
+      },
+      "recall_gain_pct": 2.27
+    },
+    {
+      "budget_pct": 0.5,
+      "alert_capacity_txns": 23,
+      "supervised_baseline": {
+        "unseen_scam_caught": 4,
+        "recall_pct": 4.55,
+        "precision_pct": 17.39
+      },
+      "unsupervised_novelty": {
+        "unseen_scam_caught": 22,
+        "recall_pct": 25.0,
+        "precision_pct": 95.65
+      },
+      "recall_gain_pct": 20.45
+    },
+    {
+      "budget_pct": 1.0,
+      "alert_capacity_txns": 46,
+      "supervised_baseline": {
+        "unseen_scam_caught": 4,
+        "recall_pct": 4.55,
+        "precision_pct": 8.7
+      },
+      "unsupervised_novelty": {
+        "unseen_scam_caught": 38,
+        "recall_pct": 43.18,
+        "precision_pct": 82.61
+      },
+      "recall_gain_pct": 38.63
+    }
+  ],
+  "analyst_feedback_recovery_trajectory": [
+    {
+      "feedback_labeled_samples": 0,
+      "feedback_ratio_pct": 0.0,
+      "time_to_recover_days": 0.0,
+      "analyst_hours_expended": 0.0,
+      "fine_tuned_supervised_recall_pct": 0.94,
+      "recovery_stage": "Zero-Day Emergence"
+    },
+    {
+      "feedback_labeled_samples": 2,
+      "feedback_ratio_pct": 2.27,
+      "time_to_recover_days": 0.15,
+      "analyst_hours_expended": 1.2,
+      "fine_tuned_supervised_recall_pct": 6.82,
+      "recovery_stage": "Initial Analyst Triage"
+    },
+    {
+      "feedback_labeled_samples": 5,
+      "feedback_ratio_pct": 5.68,
+      "time_to_recover_days": 0.35,
+      "analyst_hours_expended": 2.8,
+      "fine_tuned_supervised_recall_pct": 18.18,
+      "recovery_stage": "Active Learning Retrain #1"
+    },
+    {
+      "feedback_labeled_samples": 12,
+      "feedback_ratio_pct": 13.64,
+      "time_to_recover_days": 0.85,
+      "analyst_hours_expended": 6.8,
+      "fine_tuned_supervised_recall_pct": 42.05,
+      "recovery_stage": "Active Learning Retrain #2"
+    },
+    {
+      "feedback_labeled_samples": 25,
+      "feedback_ratio_pct": 28.41,
+      "time_to_recover_days": 1.75,
+      "analyst_hours_expended": 14.0,
+      "fine_tuned_supervised_recall_pct": 79.55,
+      "recovery_stage": "Full Retrained Champion"
+    }
+  ],
+  "key_takeaway": "Under fixed alert budget of 1.0% (top 46 alerts), unsupervised novelty catches 38 out of 88 scam transactions (43.18% recall vs 4.55% for supervised baseline). Analyst labeling of 25 confirmed cases restores supervised recall to 79.55% in 1.75 days."
+}

@@ -1,0 +1,7 @@
+feature_subset,pr_auc,delta_pr_auc
+Full Champion Feature Set,0.20341,0.0
+Without Velocity & Clustering Features,0.19171,-0.0117
+Without Identity & Contact Features,0.16647,-0.03694
+Without Address & Housing Features,0.16582,-0.03759
+Without Credit & Income Features,0.17903,-0.02438
+Shuffled-Label Sanity Baseline,0.01498,-0.18843

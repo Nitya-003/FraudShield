@@ -1,0 +1,101 @@
+{
+  "timestamp": "2026-11-11T08:43:50Z",
+  "channel": "account",
+  "dataset": "Bank Account Fraud (BAF - NeurIPS 2022)",
+  "evaluation_split": "Month 7 (96,843 rows)",
+  "pr_auc": 0.20340910864687697,
+  "operating_points": [
+    {
+      "target_fpr_pct": 1,
+      "threshold": 0.1441,
+      "recall_pct": 25.84,
+      "precision_pct": 27.87,
+      "actual_fpr_pct": 1.0,
+      "false_alarms_per_100k": 986.1,
+      "tp": 369,
+      "fp": 955,
+      "fairness_audit": {
+        "under_50": {
+          "recall_pct": 21.98,
+          "fpr_pct": 0.79,
+          "false_alarms_per_100k": 781.7
+        },
+        "age_50_plus": {
+          "recall_pct": 35.17,
+          "fpr_pct": 2.42,
+          "false_alarms_per_100k": 2344.7
+        },
+        "recall_disparity_pct": 13.19,
+        "false_alarm_ratio_older_to_younger": 3.06
+      }
+    },
+    {
+      "target_fpr_pct": 2,
+      "threshold": 0.0932,
+      "recall_pct": 37.04,
+      "precision_pct": 21.7,
+      "actual_fpr_pct": 2.0,
+      "false_alarms_per_100k": 1971.2,
+      "tp": 529,
+      "fp": 1909,
+      "fairness_audit": {
+        "under_50": {
+          "recall_pct": 33.17,
+          "fpr_pct": 1.63,
+          "false_alarms_per_100k": 1606.2
+        },
+        "age_50_plus": {
+          "recall_pct": 46.41,
+          "fpr_pct": 4.55,
+          "false_alarms_per_100k": 4397.3
+        },
+        "recall_disparity_pct": 13.24,
+        "false_alarm_ratio_older_to_younger": 2.8
+      }
+    },
+    {
+      "target_fpr_pct": 5,
+      "threshold": 0.0436,
+      "recall_pct": 56.72,
+      "precision_pct": 14.51,
+      "actual_fpr_pct": 5.0,
+      "false_alarms_per_100k": 4926.5,
+      "tp": 810,
+      "fp": 4771,
+      "fairness_audit": {
+        "under_50": {
+          "recall_pct": 52.48,
+          "fpr_pct": 4.21,
+          "false_alarms_per_100k": 4155.6
+        },
+        "age_50_plus": {
+          "recall_pct": 66.99,
+          "fpr_pct": 10.39,
+          "false_alarms_per_100k": 10049.7
+        },
+        "recall_disparity_pct": 14.51,
+        "false_alarm_ratio_older_to_younger": 2.47
+      }
+    }
+  ],
+  "fairness_accuracy_tradeoff": {
+    "intervention": "Per-Group Calibration (Equalized False Alarm Rate)",
+    "target_operating_point": "5% FPR",
+    "baseline": {
+      "uniform_threshold": 0.0436,
+      "overall_recall_pct": 56.72,
+      "younger_fpr_pct": 4.21,
+      "older_fpr_pct": 10.39,
+      "fpr_disparity_ratio": 2.47
+    },
+    "fair_calibrated": {
+      "younger_threshold": 0.0376,
+      "older_threshold": 0.0863,
+      "overall_recall_pct": 53.29,
+      "younger_fpr_pct": 5.0,
+      "older_fpr_pct": 5.0,
+      "fpr_disparity_ratio": 1.0
+    },
+    "tradeoff_summary": "Per-group calibration equalizes false alarms (FPR ratio drops from 2.47x to 1.0x), with a recall delta of -3.43%."
+  }
+}

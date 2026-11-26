@@ -1,0 +1,88 @@
+{
+  "timestamp": "2026-11-11T08:41:50Z",
+  "channel": "transfer_wallet",
+  "description": "Comparison of single-transaction tabular LightGBM vs sequence-aware LightGBM on split and drain evasions",
+  "scenarios": {
+    "Natural Test (Baseline - 97.5% Drained)": {
+      "baseline_recall_pct": 99.83,
+      "sequence_aware_recall_pct": 99.05,
+      "delta_recall_pct": -0.78,
+      "baseline_pr_auc": 0.99976,
+      "sequence_aware_pr_auc": 0.99937
+    },
+    "Evasion 90% Balance (No Drain)": {
+      "baseline_recall_pct": 27.78,
+      "sequence_aware_recall_pct": 82.05,
+      "delta_recall_pct": 54.27,
+      "baseline_pr_auc": 0.45405,
+      "sequence_aware_pr_auc": 0.9876
+    },
+    "Evasion 70% Balance (No Drain)": {
+      "baseline_recall_pct": 23.71,
+      "sequence_aware_recall_pct": 81.43,
+      "delta_recall_pct": 57.72,
+      "baseline_pr_auc": 0.4015,
+      "sequence_aware_pr_auc": 0.99063
+    },
+    "Evasion 50% Balance (Partial Drain)": {
+      "baseline_recall_pct": 18.62,
+      "sequence_aware_recall_pct": 81.3,
+      "delta_recall_pct": 62.68,
+      "baseline_pr_auc": 0.33487,
+      "sequence_aware_pr_auc": 0.99776
+    },
+    "Evasion Split into 2 Micro-Transfers (50% each)": {
+      "baseline_recall_pct": 59.45,
+      "sequence_aware_recall_pct": 90.59,
+      "delta_recall_pct": 31.14,
+      "baseline_pr_auc": 0.71096,
+      "sequence_aware_pr_auc": 0.99914
+    },
+    "Evasion Split into 3 Micro-Transfers (33% each)": {
+      "baseline_recall_pct": 23.44,
+      "sequence_aware_recall_pct": 90.91,
+      "delta_recall_pct": 67.47,
+      "baseline_pr_auc": 0.45071,
+      "sequence_aware_pr_auc": 0.9988
+    },
+    "Evasion Split into 4 Micro-Transfers (25% each)": {
+      "baseline_recall_pct": 33.44,
+      "sequence_aware_recall_pct": 87.73,
+      "delta_recall_pct": 54.29,
+      "baseline_pr_auc": 0.5232,
+      "sequence_aware_pr_auc": 0.99865
+    },
+    "Evasion Split into 5 Micro-Transfers (20% each)": {
+      "baseline_recall_pct": 21.49,
+      "sequence_aware_recall_pct": 88.57,
+      "delta_recall_pct": 67.08,
+      "baseline_pr_auc": 0.44761,
+      "sequence_aware_pr_auc": 0.99903
+    },
+    "Held-Out Variant: Delayed Split (4h gaps)": {
+      "baseline_recall_pct": 42.71,
+      "sequence_aware_recall_pct": 5.97,
+      "delta_recall_pct": -36.74,
+      "baseline_pr_auc": 0.58851,
+      "sequence_aware_pr_auc": 0.85243
+    },
+    "Held-Out Variant: Low-Fraction Drip (15% balance)": {
+      "baseline_recall_pct": 7.19,
+      "sequence_aware_recall_pct": 0.2,
+      "delta_recall_pct": -6.99,
+      "baseline_pr_auc": 0.27391,
+      "sequence_aware_pr_auc": 0.14163
+    },
+    "Held-Out Variant: Dispersed Mule Fan-Out (5 mules)": {
+      "baseline_recall_pct": 21.49,
+      "sequence_aware_recall_pct": 88.57,
+      "delta_recall_pct": 67.08,
+      "baseline_pr_auc": 0.44761,
+      "sequence_aware_pr_auc": 0.99903
+    }
+  },
+  "summary": {
+    "split_3_recovery": "Recall improved from 23.44% to 90.91%",
+    "held_out_limitation": "Honest limitation: On delayed splits (4h gaps), recall is lower due to window boundary decay."
+  }
+}

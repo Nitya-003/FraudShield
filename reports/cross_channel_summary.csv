@@ -1,0 +1,5 @@
+Channel,Data source,Benchmark name,Test rows,Test prevalence,Champion PR-AUC,95% CI,Recall,False alarms / 100k,INR value protected %
+Card Payments,"Real, anonymised",ULB Credit Card Fraud,"42,721",0.122%,0.74843,"[0.62199, 0.84923]",76.92%,231.7,56.68%
+Online Transfers & Wallets,Simulated (agent-based),PaySim Mobile Money,"918,617",0.436%,0.99976,"[0.99811, 1.00000]",99.78%,1.6,99.99%
+Bank Accounts,Privacy-preserving synthetic,Bank Account Fraud (BAF NeurIPS 2022),"96,843",1.475%,0.21945,"[0.19814, 0.24163]",56.16%,4903.8,54.79%
+UPI Transactions,Simulated by us,Synthetic Indian UPI Simulator,"145,716",0.386%,0.78286,"[0.75218, 0.81432]",87.92%,21.3,61.90%

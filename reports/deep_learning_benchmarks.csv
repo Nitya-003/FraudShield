@@ -1,0 +1,6 @@
+family,model_name,hardware,pr_auc,recall,precision,false_alarms_per_100k,fp,train_time_sec,infer_latency_ms_10k,model_size_mb,deployment_ease
+Boosted Trees,Tuned LightGBM (CPU),CPU (16 Threads),0.99996,0.99975,0.99478,2.3,21,0.35,9.2,0.85,"High (1 file, no GPU, < 1MB)"
+Boosted Trees,Tuned CatBoost (GPU),RTX 5070 GPU,0.99991,0.99875,0.9933,2.9,27,1.9,3.3,1.2,High (Compiled binary / C++ runtime)
+Ensemble,Stacked Ensemble (Blender),CPU + GPU Meta,0.99994,0.99675,0.9995,0.2,2,3.77,59.54,2.1,Moderate (5-model pipeline dependency)
+Deep Learning,Tabular ResNet (GPU),RTX 5070 GPU,0.9176,0.96955,0.30304,972.4,8933,15.55,8.51,2.45,Moderate (Requires PyTorch GPU runtime)
+Deep Learning,GraphSAGE GNN (GPU),RTX 5070 GPU,0.01381,0.0,0.0,0.0,0,0.3,35.69,4.1,Low (Requires PyTorch Geometric + graph index)

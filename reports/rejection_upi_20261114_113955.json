@@ -1,0 +1,40 @@
+{
+  "channel": "upi",
+  "timestamp": "2026-11-14T11:39:55.755081Z",
+  "action": "REJECTED",
+  "forced": false,
+  "gates": {
+    "gate1_pr_auc": {
+      "passed": true,
+      "incumbent_pr_auc": 0.78286,
+      "incumbent_ci_lower": 0.75218,
+      "candidate_pr_auc": 0.8488
+    },
+    "gate2_false_alarms": {
+      "passed": true,
+      "incumbent_fa_per_100k": 50.0,
+      "candidate_fa_per_100k": 0.0
+    },
+    "gate3_brier_calibration": {
+      "passed": false,
+      "incumbent_brier": 0.005,
+      "candidate_brier": 0.01797
+    }
+  },
+  "incumbent_version": "2.0.0",
+  "candidate_metrics": {
+    "pr_auc": 0.8488,
+    "brier_score": 0.01797,
+    "false_alarms_per_100k": 0.0,
+    "recall": 0.824,
+    "precision": 1.0,
+    "ci_95_pr_auc": [
+      0.81873,
+      0.87134
+    ],
+    "tp": 412,
+    "fp": 0,
+    "fn": 88,
+    "tn": 4500
+  }
+}

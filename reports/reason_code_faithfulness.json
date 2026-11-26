@@ -1,0 +1,402 @@
+{
+  "timestamp": "2026-11-15T16:35:43.990095+00:00Z",
+  "methodology": "Feature-deletion explanation faithfulness test. For each channel, high-risk transactions are evaluated with TreeSHAP. The top risk-increasing feature is removed or neutralized to its baseline value. The test passes if the calibrated risk score drops.",
+  "channels": {
+    "card": {
+      "channel": "card",
+      "tested_count": 40,
+      "passed_count": 22,
+      "pass_rate_pct": 55.0,
+      "avg_score_drop": 0.2149,
+      "sample_trials": [
+        {
+          "index": 0,
+          "top_feature": "V14",
+          "shap_value": 3.72,
+          "score_orig": 0.9691,
+          "score_deleted": 0.8265,
+          "score_drop": 0.1426,
+          "passed": true
+        },
+        {
+          "index": 1,
+          "top_feature": "V14",
+          "shap_value": 4.366,
+          "score_orig": 0.9767,
+          "score_deleted": 0.5256,
+          "score_drop": 0.4511,
+          "passed": true
+        },
+        {
+          "index": 2,
+          "top_feature": "V14",
+          "shap_value": 3.9723,
+          "score_orig": 0.9465,
+          "score_deleted": 0.5821,
+          "score_drop": 0.3644,
+          "passed": true
+        },
+        {
+          "index": 3,
+          "top_feature": "V14",
+          "shap_value": 3.8396,
+          "score_orig": 0.9758,
+          "score_deleted": 0.8446,
+          "score_drop": 0.1312,
+          "passed": true
+        },
+        {
+          "index": 4,
+          "top_feature": "V14",
+          "shap_value": 3.9726,
+          "score_orig": 0.9757,
+          "score_deleted": 0.7879,
+          "score_drop": 0.1878,
+          "passed": true
+        },
+        {
+          "index": 5,
+          "top_feature": "V14",
+          "shap_value": 3.9727,
+          "score_orig": 0.9757,
+          "score_deleted": 0.7978,
+          "score_drop": 0.1779,
+          "passed": true
+        },
+        {
+          "index": 6,
+          "top_feature": "V14",
+          "shap_value": 4.0201,
+          "score_orig": 0.976,
+          "score_deleted": 0.7996,
+          "score_drop": 0.1764,
+          "passed": true
+        },
+        {
+          "index": 7,
+          "top_feature": "V4",
+          "shap_value": 1.22,
+          "score_orig": 0.0001,
+          "score_deleted": 0.0,
+          "score_drop": 0.0001,
+          "passed": true
+        },
+        {
+          "index": 8,
+          "top_feature": "V14",
+          "shap_value": 2.0129,
+          "score_orig": 0.0004,
+          "score_deleted": 0.0001,
+          "score_drop": 0.0003,
+          "passed": true
+        },
+        {
+          "index": 9,
+          "top_feature": "V12",
+          "shap_value": 2.4787,
+          "score_orig": 0.7356,
+          "score_deleted": 0.0417,
+          "score_drop": 0.6939,
+          "passed": true
+        }
+      ]
+    },
+    "transfer_wallet": {
+      "channel": "transfer_wallet",
+      "tested_count": 40,
+      "passed_count": 20,
+      "pass_rate_pct": 50.0,
+      "avg_score_drop": 0.5,
+      "sample_trials": [
+        {
+          "index": 5,
+          "top_feature": "amount_to_balance_ratio",
+          "shap_value": 75962974.003,
+          "score_orig": 1.0,
+          "score_deleted": 0.0,
+          "score_drop": 1.0,
+          "passed": true
+        },
+        {
+          "index": 8,
+          "top_feature": "amount_to_balance_ratio",
+          "shap_value": 76107088.2368,
+          "score_orig": 1.0,
+          "score_deleted": 0.0,
+          "score_drop": 1.0,
+          "passed": true
+        },
+        {
+          "index": 9,
+          "top_feature": "amount_to_balance_ratio",
+          "shap_value": 75904777.3949,
+          "score_orig": 1.0,
+          "score_deleted": 0.0,
+          "score_drop": 1.0,
+          "passed": true
+        },
+        {
+          "index": 11,
+          "top_feature": "amount_to_balance_ratio",
+          "shap_value": 29060098.7247,
+          "score_orig": 1.0,
+          "score_deleted": 0.0,
+          "score_drop": 1.0,
+          "passed": true
+        },
+        {
+          "index": 47,
+          "top_feature": "amount_to_balance_ratio",
+          "shap_value": 13346592.4641,
+          "score_orig": 0.0,
+          "score_deleted": 0.0,
+          "score_drop": 0.0,
+          "passed": false
+        },
+        {
+          "index": 58,
+          "top_feature": "amount_to_balance_ratio",
+          "shap_value": 36646027.6652,
+          "score_orig": 1.0,
+          "score_deleted": 0.0,
+          "score_drop": 1.0,
+          "passed": true
+        },
+        {
+          "index": 60,
+          "top_feature": "amount_to_balance_ratio",
+          "shap_value": 76106371.3979,
+          "score_orig": 1.0,
+          "score_deleted": 0.0,
+          "score_drop": 1.0,
+          "passed": true
+        },
+        {
+          "index": 73,
+          "top_feature": "amount_to_balance_ratio",
+          "shap_value": 36076690.5397,
+          "score_orig": 1.0,
+          "score_deleted": 0.0,
+          "score_drop": 1.0,
+          "passed": true
+        },
+        {
+          "index": 74,
+          "top_feature": "amount_to_balance_ratio",
+          "shap_value": 36136939.4723,
+          "score_orig": 1.0,
+          "score_deleted": 0.0,
+          "score_drop": 1.0,
+          "passed": true
+        },
+        {
+          "index": 75,
+          "top_feature": "amount_to_balance_ratio",
+          "shap_value": 76374162.1981,
+          "score_orig": 1.0,
+          "score_deleted": 0.0,
+          "score_drop": 1.0,
+          "passed": true
+        }
+      ]
+    },
+    "account": {
+      "channel": "account",
+      "tested_count": 35,
+      "passed_count": 30,
+      "pass_rate_pct": 85.71,
+      "avg_score_drop": 0.0529,
+      "sample_trials": [
+        {
+          "index": 8,
+          "top_feature": "housing_status_BA",
+          "shap_value": 0.945,
+          "score_orig": 0.2699,
+          "score_deleted": 0.1481,
+          "score_drop": 0.1218,
+          "passed": true
+        },
+        {
+          "index": 10,
+          "top_feature": "housing_status_BA",
+          "shap_value": 0.964,
+          "score_orig": 0.3368,
+          "score_deleted": 0.1645,
+          "score_drop": 0.1723,
+          "passed": true
+        },
+        {
+          "index": 19,
+          "top_feature": "housing_status_BA",
+          "shap_value": 1.1088,
+          "score_orig": 0.1112,
+          "score_deleted": 0.0239,
+          "score_drop": 0.0873,
+          "passed": true
+        },
+        {
+          "index": 65,
+          "top_feature": "housing_status_BA",
+          "shap_value": 1.1431,
+          "score_orig": 0.47,
+          "score_deleted": 0.1602,
+          "score_drop": 0.3098,
+          "passed": true
+        },
+        {
+          "index": 76,
+          "top_feature": "housing_status_BA",
+          "shap_value": 1.0515,
+          "score_orig": 0.1265,
+          "score_deleted": 0.0445,
+          "score_drop": 0.082,
+          "passed": true
+        },
+        {
+          "index": 82,
+          "top_feature": "housing_status_BA",
+          "shap_value": 0.8529,
+          "score_orig": 0.015,
+          "score_deleted": 0.0077,
+          "score_drop": 0.0073,
+          "passed": true
+        },
+        {
+          "index": 106,
+          "top_feature": "device_distinct_emails_8w",
+          "shap_value": 0.8129,
+          "score_orig": 0.0579,
+          "score_deleted": 0.0229,
+          "score_drop": 0.035,
+          "passed": true
+        },
+        {
+          "index": 108,
+          "top_feature": "name_email_similarity",
+          "shap_value": 0.3898,
+          "score_orig": 0.0061,
+          "score_deleted": 0.0027,
+          "score_drop": 0.0034,
+          "passed": true
+        },
+        {
+          "index": 109,
+          "top_feature": "device_os_windows",
+          "shap_value": 0.7662,
+          "score_orig": 0.0399,
+          "score_deleted": 0.0094,
+          "score_drop": 0.0305,
+          "passed": true
+        },
+        {
+          "index": 110,
+          "top_feature": "device_os_windows",
+          "shap_value": 0.642,
+          "score_orig": 0.0137,
+          "score_deleted": 0.0053,
+          "score_drop": 0.0084,
+          "passed": true
+        }
+      ]
+    },
+    "upi": {
+      "channel": "upi",
+      "tested_count": 21,
+      "passed_count": 17,
+      "pass_rate_pct": 80.95,
+      "avg_score_drop": 0.7752,
+      "sample_trials": [
+        {
+          "index": 3,
+          "top_feature": "amount",
+          "shap_value": 0.0128,
+          "score_orig": 0.0,
+          "score_deleted": 0.0,
+          "score_drop": 0.0,
+          "passed": false
+        },
+        {
+          "index": 8,
+          "top_feature": "payee_vpa_age_days",
+          "shap_value": 13.8361,
+          "score_orig": 0.9776,
+          "score_deleted": 0.0,
+          "score_drop": 0.9776,
+          "passed": true
+        },
+        {
+          "index": 10,
+          "top_feature": "payee_vpa_age_days",
+          "shap_value": 12.944,
+          "score_orig": 0.9415,
+          "score_deleted": 0.0,
+          "score_drop": 0.9415,
+          "passed": true
+        },
+        {
+          "index": 28,
+          "top_feature": "payee_vpa_age_days",
+          "shap_value": 13.4768,
+          "score_orig": 0.9749,
+          "score_deleted": 0.0,
+          "score_drop": 0.9749,
+          "passed": true
+        },
+        {
+          "index": 45,
+          "top_feature": "payee_vpa_age_days",
+          "shap_value": 13.004,
+          "score_orig": 0.9474,
+          "score_deleted": 0.0,
+          "score_drop": 0.9474,
+          "passed": true
+        },
+        {
+          "index": 46,
+          "top_feature": "payee_vpa_age_days",
+          "shap_value": 13.7072,
+          "score_orig": 0.9714,
+          "score_deleted": 0.0,
+          "score_drop": 0.9714,
+          "passed": true
+        },
+        {
+          "index": 47,
+          "top_feature": "payee_vpa_age_days",
+          "shap_value": 13.4248,
+          "score_orig": 0.9713,
+          "score_deleted": 0.0,
+          "score_drop": 0.9713,
+          "passed": true
+        },
+        {
+          "index": 61,
+          "top_feature": "payee_vpa_age_days",
+          "shap_value": 13.3928,
+          "score_orig": 0.9692,
+          "score_deleted": 0.0,
+          "score_drop": 0.9692,
+          "passed": true
+        },
+        {
+          "index": 67,
+          "top_feature": "payee_vpa_age_days",
+          "shap_value": 13.823,
+          "score_orig": 0.9776,
+          "score_deleted": 0.0,
+          "score_drop": 0.9776,
+          "passed": true
+        },
+        {
+          "index": 71,
+          "top_feature": "payee_vpa_age_days",
+          "shap_value": 13.0738,
+          "score_orig": 0.9609,
+          "score_deleted": 0.0,
+          "score_drop": 0.9609,
+          "passed": true
+        }
+      ]
+    }
+  }
+}

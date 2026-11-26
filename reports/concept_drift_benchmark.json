@@ -1,0 +1,147 @@
+{
+  "timestamp": "2026-11-11T08:47:22Z",
+  "baf_account_drift": {
+    "channel": "account",
+    "description": "Comparison of static model trained on Months 0-2 vs monthly retrained models over Months 3 to 7",
+    "series": [
+      {
+        "month": 3,
+        "total_applications": 150936,
+        "fraud_count": 1392,
+        "static_model": {
+          "pr_auc": 0.14414,
+          "tpr_at_5pct_fpr": 55.89
+        },
+        "monthly_retrained_model": {
+          "pr_auc": 0.14414,
+          "tpr_at_5pct_fpr": 55.89
+        },
+        "pr_auc_delta": 0.0,
+        "tpr_delta_pct": 0.0
+      },
+      {
+        "month": 4,
+        "total_applications": 127691,
+        "fraud_count": 1452,
+        "static_model": {
+          "pr_auc": 0.15601,
+          "tpr_at_5pct_fpr": 54.75
+        },
+        "monthly_retrained_model": {
+          "pr_auc": 0.16088,
+          "tpr_at_5pct_fpr": 54.89
+        },
+        "pr_auc_delta": 0.00487,
+        "tpr_delta_pct": 0.14
+      },
+      {
+        "month": 5,
+        "total_applications": 119323,
+        "fraud_count": 1411,
+        "static_model": {
+          "pr_auc": 0.16354,
+          "tpr_at_5pct_fpr": 52.02
+        },
+        "monthly_retrained_model": {
+          "pr_auc": 0.17507,
+          "tpr_at_5pct_fpr": 52.66
+        },
+        "pr_auc_delta": 0.01154,
+        "tpr_delta_pct": 0.64
+      },
+      {
+        "month": 6,
+        "total_applications": 108168,
+        "fraud_count": 1450,
+        "static_model": {
+          "pr_auc": 0.15894,
+          "tpr_at_5pct_fpr": 50.48
+        },
+        "monthly_retrained_model": {
+          "pr_auc": 0.17301,
+          "tpr_at_5pct_fpr": 51.17
+        },
+        "pr_auc_delta": 0.01407,
+        "tpr_delta_pct": 0.69
+      },
+      {
+        "month": 7,
+        "total_applications": 96843,
+        "fraud_count": 1428,
+        "static_model": {
+          "pr_auc": 0.19497,
+          "tpr_at_5pct_fpr": 56.23
+        },
+        "monthly_retrained_model": {
+          "pr_auc": 0.20655,
+          "tpr_at_5pct_fpr": 56.72
+        },
+        "pr_auc_delta": 0.01158,
+        "tpr_delta_pct": 0.49
+      }
+    ]
+  },
+  "upi_drift": {
+    "channel": "upi",
+    "description": "Comparison of static model trained on Days 1-15 vs periodically retrained models over bi-weekly cohorts",
+    "series": [
+      {
+        "cohort": "Cohort 2 (Days 16-30)",
+        "days": [
+          16,
+          30
+        ],
+        "total_transactions": 264052,
+        "fraud_count": 1012,
+        "static_model": {
+          "pr_auc": 0.86921,
+          "recall_pct": 83.7
+        },
+        "retrained_model": {
+          "pr_auc": 0.86921,
+          "recall_pct": 83.7
+        },
+        "pr_auc_delta": 0.0,
+        "recall_delta_pct": 0.0
+      },
+      {
+        "cohort": "Cohort 3 (Days 31-45)",
+        "days": [
+          31,
+          45
+        ],
+        "total_transactions": 247078,
+        "fraud_count": 870,
+        "static_model": {
+          "pr_auc": 0.87231,
+          "recall_pct": 81.49
+        },
+        "retrained_model": {
+          "pr_auc": 0.87426,
+          "recall_pct": 76.67
+        },
+        "pr_auc_delta": 0.00196,
+        "recall_delta_pct": -4.83
+      },
+      {
+        "cohort": "Cohort 4 (Days 46-60, Drift)",
+        "days": [
+          46,
+          60
+        ],
+        "total_transactions": 242605,
+        "fraud_count": 955,
+        "static_model": {
+          "pr_auc": 0.81107,
+          "recall_pct": 75.18
+        },
+        "retrained_model": {
+          "pr_auc": 0.82502,
+          "recall_pct": 75.71
+        },
+        "pr_auc_delta": 0.01395,
+        "recall_delta_pct": 0.52
+      }
+    ]
+  }
+}

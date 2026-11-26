@@ -1,0 +1,7 @@
+feature_subset,pr_auc,delta_pr_auc
+Full Champion Feature Set,0.82645,0.0
+Without RAT & SIM-Swap Indicators,0.81382,-0.01263
+Without Collect & QR Channel Features,0.81433,-0.01212
+Without VPA Age & History Features,0.78007,-0.04638
+Without Amount & Time Features,0.78948,-0.03697
+Shuffled-Label Sanity Baseline,0.0039,-0.82255

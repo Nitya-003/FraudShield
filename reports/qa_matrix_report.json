@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-11-10 14:40:14 UTC",
+  "total_test_executions": 130,
+  "passed": 130,
+  "failed": 0,
+  "failures": [],
+  "average_load_time_sec": 2.379,
+  "page_perf_breakdown_sec": {
+    "home": 2.347,
+    "overview": 2.569,
+    "live_check": 2.583,
+    "cases": 2.531,
+    "batch": 2.493,
+    "entity": 2.276,
+    "shadow_mode": 2.215,
+    "api": 2.397,
+    "transactions": 2.579,
+    "performance": 2.329,
+    "monitoring": 2.34,
+    "demo_controls": 2.325,
+    "how_it_works": 1.944
+  },
+  "audits": {
+    "no_exception_text": true,
+    "no_desktop_horizontal_overflow": true,
+    "font_loading_verified": true,
+    "reduced_motion_verified": true
+  }
+}

@@ -1,0 +1,6 @@
+model_name,overall_pr_auc,overall_roc_auc,seen_fraud_recall,unseen_fraud_recall,overall_recall,overall_precision,overall_f1,false_alarms_per_100k,tp,fp,fn,expected_cost_inr
+Supervised Champion (LightGBM),0.82881,0.986,0.9998,0.0,0.80004,0.99478,0.88685,2.3,4005,21,1001,110218420.94
+Isolation Forest (CPU),0.06351,0.89649,0.2289,0.061,0.19537,0.10137,0.13348,942.8,978,8670,4028,2839991294.1
+PyTorch Autoencoder (GPU),0.01034,0.71788,0.0015,0.0,0.0012,0.00293,0.0017,222.3,6,2044,5000,6428963653.12
+Hybrid Model (alpha=0.62 + Autoencoder),0.80471,0.95444,0.9998,0.0,0.80004,0.99652,0.88753,1.5,4005,14,1001,110214920.94
+Hybrid Model (alpha=0.62 + IsolationForest),0.82883,0.98582,0.9998,0.0,0.80004,0.99602,0.88734,1.7,4005,16,1001,110215920.94
