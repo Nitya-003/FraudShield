@@ -1,0 +1,297 @@
+{
+  "version": "2.0.0",
+  "last_updated": "2026-11-14",
+  "champions": {
+    "transfer_wallet": {
+      "channel": "transfer_wallet",
+      "display_name": "Online Transfers & Wallets",
+      "dataset_name": "PaySim Synthetic Mobile Money",
+      "model_name": "Tuned LightGBM (Sequence-Aware)",
+      "algorithm": "LightGBM + Platt Sigmoid Calibration + History Sequence Features",
+      "version": "2.0.0",
+      "trained_date": "2026-11-11",
+      "pr_auc": 0.99937,
+      "roc_auc": 0.99999,
+      "recall": 0.99051,
+      "precision": 0.99548,
+      "brier_score": 6e-05,
+      "false_alarms_per_100k": 0.4,
+      "bootstrap_ci_95": {
+        "pr_auc": [
+          0.99883,
+          0.99974
+        ]
+      },
+      "thresholds": {
+        "low_risk_approve": 0.45,
+        "high_risk_decline": 0.9
+      },
+      "key_findings": {
+        "natural_recall": "99.05%",
+        "split_3_transfers_recall": "90.91% (recovered from 23.44% baseline with sequence features)",
+        "held_out_limitation": "Delayed 4h splits fall to 5.97% recall and low-fraction drips fall to 0.20% recall (baseline gets 7.19% on drips)"
+      }
+    },
+    "card": {
+      "channel": "card",
+      "display_name": "Card Payments",
+      "dataset_name": "European Cardholders (ULB Machine Learning Group)",
+      "model_name": "Stacked Ensemble (LGBM + XGBoost GPU + CatBoost GPU)",
+      "algorithm": "Soft-Voting Weighted Ensemble + Platt Sigmoid Calibration",
+      "version": "2.0.0",
+      "trained_date": "2026-11-11",
+      "pr_auc": 0.74843,
+      "roc_auc": 0.98062,
+      "recall": 0.76923,
+      "precision": 0.28777,
+      "brier_score": 0.03093,
+      "false_alarms_per_100k": 24.1,
+      "bootstrap_ci_95": {
+        "pr_auc": [
+          0.62199,
+          0.84923
+        ]
+      },
+      "thresholds": {
+        "low_risk_approve": 0.2,
+        "high_risk_decline": 0.7
+      },
+      "repeated_window_evaluation": {},
+      "review_budgets": {}
+    },
+    "account": {
+      "channel": "account",
+      "display_name": "Bank Account Opening",
+      "dataset_name": "Bank Account Fraud (BAF - NeurIPS 2022)",
+      "model_name": "Tuned CatBoost (Native Categoricals)",
+      "algorithm": "CatBoost (Ordered Boosting) + Native Categoricals",
+      "version": "2.0.0",
+      "trained_date": "2026-11-11",
+      "pr_auc": 0.21945,
+      "roc_auc": 0.89548,
+      "recall": 0.56162,
+      "precision": 0.14448,
+      "tpr_at_5pct_fpr": 0.56162,
+      "brier_score": 0.06774,
+      "false_alarms_per_100k": 4926.5,
+      "bootstrap_ci_95": {
+        "pr_auc": [
+          0.19814,
+          0.24163
+        ]
+      },
+      "thresholds": {
+        "low_risk_approve": 0.08,
+        "high_risk_decline": 0.7
+      },
+      "operating_point_table": [
+        {
+          "target_fpr_pct": 1,
+          "threshold": 0.1441,
+          "recall_pct": 25.84,
+          "precision_pct": 27.87,
+          "actual_fpr_pct": 1.0,
+          "false_alarms_per_100k": 986.1,
+          "tp": 369,
+          "fp": 955,
+          "fairness_audit": {
+            "under_50": {
+              "recall_pct": 21.98,
+              "fpr_pct": 0.79,
+              "false_alarms_per_100k": 781.7
+            },
+            "age_50_plus": {
+              "recall_pct": 35.17,
+              "fpr_pct": 2.42,
+              "false_alarms_per_100k": 2344.7
+            },
+            "recall_disparity_pct": 13.19,
+            "false_alarm_ratio_older_to_younger": 3.06
+          }
+        },
+        {
+          "target_fpr_pct": 2,
+          "threshold": 0.0932,
+          "recall_pct": 37.04,
+          "precision_pct": 21.7,
+          "actual_fpr_pct": 2.0,
+          "false_alarms_per_100k": 1971.2,
+          "tp": 529,
+          "fp": 1909,
+          "fairness_audit": {
+            "under_50": {
+              "recall_pct": 33.17,
+              "fpr_pct": 1.63,
+              "false_alarms_per_100k": 1606.2
+            },
+            "age_50_plus": {
+              "recall_pct": 46.41,
+              "fpr_pct": 4.55,
+              "false_alarms_per_100k": 4397.3
+            },
+            "recall_disparity_pct": 13.24,
+            "false_alarm_ratio_older_to_younger": 2.8
+          }
+        },
+        {
+          "target_fpr_pct": 5,
+          "threshold": 0.0436,
+          "recall_pct": 56.72,
+          "precision_pct": 14.51,
+          "actual_fpr_pct": 5.0,
+          "false_alarms_per_100k": 4926.5,
+          "tp": 810,
+          "fp": 4771,
+          "fairness_audit": {
+            "under_50": {
+              "recall_pct": 52.48,
+              "fpr_pct": 4.21,
+              "false_alarms_per_100k": 4155.6
+            },
+            "age_50_plus": {
+              "recall_pct": 66.99,
+              "fpr_pct": 10.39,
+              "false_alarms_per_100k": 10049.7
+            },
+            "recall_disparity_pct": 14.51,
+            "false_alarm_ratio_older_to_younger": 2.47
+          }
+        }
+      ],
+      "fairness_accuracy_tradeoff": {
+        "intervention": "Per-Group Calibration (Equalized False Alarm Rate)",
+        "target_operating_point": "5% FPR",
+        "baseline": {
+          "uniform_threshold": 0.0436,
+          "overall_recall_pct": 56.72,
+          "younger_fpr_pct": 4.21,
+          "older_fpr_pct": 10.39,
+          "fpr_disparity_ratio": 2.47
+        },
+        "fair_calibrated": {
+          "younger_threshold": 0.0376,
+          "older_threshold": 0.0863,
+          "overall_recall_pct": 53.29,
+          "younger_fpr_pct": 5.0,
+          "older_fpr_pct": 5.0,
+          "fpr_disparity_ratio": 1.0
+        },
+        "tradeoff_summary": "Per-group calibration equalizes false alarms (FPR ratio drops from 2.47x to 1.0x), with a recall delta of -3.43%."
+      }
+    },
+    "upi": {
+      "channel": "upi",
+      "display_name": "UPI Transactions",
+      "dataset_name": "Synthetic Indian UPI Transaction Stream",
+      "model_name": "Tuned LightGBM (Behavior-Deviation)",
+      "algorithm": "LightGBM + Payer Baseline Deviation Features",
+      "version": "2.1.0",
+      "trained_date": "2026-11-14",
+      "pr_auc": 0.97847,
+      "roc_auc": 0.91604,
+      "recall": 0.824,
+      "precision": 1.0,
+      "brier_score": 0.01801,
+      "false_alarms_per_100k": 0.0,
+      "bootstrap_ci_95": {
+        "pr_auc": [
+          0.97237,
+          0.98363
+        ]
+      },
+      "thresholds": {
+        "low_risk_approve": 0.15,
+        "high_risk_decline": 0.87
+      },
+      "active_learning_feedback_curve": [
+        {
+          "feedback_fraction_pct": 0.0,
+          "labeled_samples_count": 0,
+          "time_to_recover_days": 0.0,
+          "step_up_alert_recall_pct": 0.0,
+          "hard_decline_recall_pct": 0.0
+        },
+        {
+          "feedback_fraction_pct": 1.0,
+          "labeled_samples_count": 1,
+          "time_to_recover_days": 0.07,
+          "step_up_alert_recall_pct": 0.0,
+          "hard_decline_recall_pct": 0.0
+        },
+        {
+          "feedback_fraction_pct": 5.0,
+          "labeled_samples_count": 5,
+          "time_to_recover_days": 0.33,
+          "step_up_alert_recall_pct": 10.75,
+          "hard_decline_recall_pct": 5.38
+        },
+        {
+          "feedback_fraction_pct": 10.0,
+          "labeled_samples_count": 11,
+          "time_to_recover_days": 0.73,
+          "step_up_alert_recall_pct": 17.24,
+          "hard_decline_recall_pct": 4.6
+        }
+      ],
+      "history": [
+        {
+          "channel": "upi",
+          "display_name": "UPI Transactions",
+          "dataset_name": "Synthetic Indian UPI Transaction Stream",
+          "model_name": "Tuned LightGBM (Behavior-Deviation)",
+          "algorithm": "LightGBM + Payer Baseline Deviation Features",
+          "version": "2.0.0",
+          "trained_date": "2026-11-11",
+          "pr_auc": 0.78286,
+          "roc_auc": 0.91604,
+          "recall": 0.87922,
+          "precision": 0.93737,
+          "brier_score": 0.01801,
+          "false_alarms_per_100k": 12.5,
+          "bootstrap_ci_95": {
+            "pr_auc": [
+              0.97237,
+              0.98363
+            ]
+          },
+          "thresholds": {
+            "low_risk_approve": 0.15,
+            "high_risk_decline": 0.87
+          },
+          "active_learning_feedback_curve": [
+            {
+              "feedback_fraction_pct": 0.0,
+              "labeled_samples_count": 0,
+              "time_to_recover_days": 0.0,
+              "step_up_alert_recall_pct": 0.0,
+              "hard_decline_recall_pct": 0.0
+            },
+            {
+              "feedback_fraction_pct": 1.0,
+              "labeled_samples_count": 1,
+              "time_to_recover_days": 0.07,
+              "step_up_alert_recall_pct": 0.0,
+              "hard_decline_recall_pct": 0.0
+            },
+            {
+              "feedback_fraction_pct": 5.0,
+              "labeled_samples_count": 5,
+              "time_to_recover_days": 0.33,
+              "step_up_alert_recall_pct": 10.75,
+              "hard_decline_recall_pct": 5.38
+            },
+            {
+              "feedback_fraction_pct": 10.0,
+              "labeled_samples_count": 11,
+              "time_to_recover_days": 0.73,
+              "step_up_alert_recall_pct": 17.24,
+              "hard_decline_recall_pct": 4.6
+            }
+          ],
+          "demoted_date": "2026-11-14T11:40:54.568208Z",
+          "demoted_reason": "Superceded by candidate 2.1.0"
+        }
+      ]
+    }
+  }
+}
