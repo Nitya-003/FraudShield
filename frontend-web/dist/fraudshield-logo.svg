@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bg-glow" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#16222F" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0B0F14" stop-opacity="1"/>
+    </radialGradient>
+    
+    <!-- Emerald Accent Gradients -->
+    <linearGradient id="emerald-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2DD4A0"/>
+      <stop offset="100%" stop-color="#0E9F77"/>
+    </linearGradient>
+    
+    <!-- Shield Facet Gradients -->
+    <linearGradient id="facet-top-left" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E2A38"/>
+      <stop offset="100%" stop-color="#111822"/>
+    </linearGradient>
+    <linearGradient id="facet-top-right" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#243344"/>
+      <stop offset="100%" stop-color="#141E2A"/>
+    </linearGradient>
+    <linearGradient id="facet-bottom-left" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#141D27"/>
+      <stop offset="100%" stop-color="#0E141C"/>
+    </linearGradient>
+    <linearGradient id="facet-bottom-right" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#182330"/>
+      <stop offset="100%" stop-color="#101720"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Container Surface -->
+  <rect width="512" height="512" rx="112" fill="url(#bg-glow)"/>
+  <rect width="510" height="510" x="1" y="1" rx="111" stroke="#1E2630" stroke-width="2"/>
+
+  <!-- Outer Aperture Shield Contour -->
+  <g transform="translate(0, 8)">
+    <!-- Top-Left Facet -->
+    <path d="M256 76L128 132V240C128 270 148 316 192 360L256 256V76Z" fill="url(#facet-top-left)"/>
+    <!-- Top-Right Facet -->
+    <path d="M256 76L384 132V240C384 270 364 316 320 360L256 256V76Z" fill="url(#facet-top-right)"/>
+    <!-- Bottom-Left Facet -->
+    <path d="M192 360C216 384 240 404 256 414V256L192 360Z" fill="url(#facet-bottom-left)"/>
+    <!-- Bottom-Right Facet -->
+    <path d="M320 360C296 384 272 404 256 414V256L320 360Z" fill="url(#facet-bottom-right)"/>
+
+    <!-- Perimeter Edge Wireframe -->
+    <path d="M256 76L384 132V240C384 328 328 394 256 414C184 394 128 328 128 240V132L256 76Z" 
+          stroke="#2A384A" stroke-width="4" stroke-linejoin="round"/>
+
+    <!-- Emerald Aperture Gate Lines (The Core Precision Feature) -->
+    <!-- Aperture Gate Hexagon / Diamond Structure -->
+    <polygon points="256,180 308,220 308,284 256,324 204,284 204,220" 
+             fill="#0B0F14" stroke="url(#emerald-glow)" stroke-width="4" stroke-linejoin="round"/>
+    
+    <!-- Cross Gate Aperture Slits -->
+    <line x1="256" y1="76" x2="256" y2="180" stroke="#2DD4A0" stroke-width="3" stroke-linecap="round" stroke-opacity="0.8"/>
+    <line x1="256" y1="324" x2="256" y2="414" stroke="#2DD4A0" stroke-width="3" stroke-linecap="round" stroke-opacity="0.8"/>
+    <line x1="128" y1="240" x2="204" y2="240" stroke="#2DD4A0" stroke-width="3" stroke-linecap="round" stroke-opacity="0.8"/>
+    <line x1="308" y1="240" x2="384" y2="240" stroke="#2DD4A0" stroke-width="3" stroke-linecap="round" stroke-opacity="0.8"/>
+
+    <!-- Central Aperture Core (Glowing Pulse Gateway) -->
+    <circle cx="256" cy="252" r="14" fill="#2DD4A0" fill-opacity="0.25"/>
+    <circle cx="256" cy="252" r="7" fill="#2DD4A0"/>
+  </g>
+</svg>
